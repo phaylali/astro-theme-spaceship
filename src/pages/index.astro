@@ -23,7 +23,7 @@ const tree = buildTree(documents);
 
 <Layout page={{
   title: website.title,
-  language: 'en',
+  language: website.defaultLanguage,
   seo: {
     description: 'Astro Template for publishing your Obsidian Vault',
   }
@@ -39,7 +39,7 @@ const tree = buildTree(documents);
     </section>
     <section class="flex flex-col lg:flex-row bg-article-background dark:bg-article-background-dark rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
       <Image src={AstroLogo} alt="" class="w-[50vw] lg:w-[512px]"  />
-      <span class="text-9xl dark:text-white">+</span>
+      <span class="text-9xl text-paragraph-foreground dark:text-paragraph-foreground-dark">+</span>
       <Image src={ObsidianLogo} alt="" class="w-[50vw] lg:w-[512px]" />
     </section>
   </article>

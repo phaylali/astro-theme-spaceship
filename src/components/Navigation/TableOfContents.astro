@@ -1,4 +1,5 @@
 ---
+import { useI18n } from "../../i18n/utils";
 import type { DocumentContext } from "../../types";
 
 export type Heading = {
@@ -16,12 +17,14 @@ const { document } = Astro.props;
 const headings = (document?.rendered?.metadata as any)?.headings as Heading[];
 
 const shouldRender = !!(headings?.length && headings.length > 0);
+
+const t = useI18n(Astro);
 ---
 
 {
    shouldRender && (
     <nav class="ml-4 mb-4 text-menu-foreground dark:text-menu-foreground-dark">
-      <h2 class="text-xl mb-2">Table of Contents</h2>
+      <h2 class="text-xl mb-2">{t('nav.tableOfContents')}</h2>
       <ul class="flex flex-col gap-0.5">
         {headings.map(({ depth, slug, text }) => (
           <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">

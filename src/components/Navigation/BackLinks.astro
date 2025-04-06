@@ -1,4 +1,5 @@
 ---
+import { useI18n } from "../../i18n/utils";
 import type { NavigationContext } from "../../types";
 
 export type Props = {
@@ -9,12 +10,13 @@ const { navigation } = Astro.props
 const { backlinks } = navigation;
 
 const shouldRender = !!(backlinks.length && backlinks.length > 0);
+const t = useI18n(Astro);
 ---
 
 {
   shouldRender && (
     <nav class="ml-4 mb-4 text-menu-foreground dark:text-menu-foreground-dark">
-      <h2 class="text-xl mb-2">Linked Mentions</h2>
+      <h2 class="text-xl mb-2">{t('nav.linkedMentions')}</h2>
       <ul class="flex flex-col gap-0.5">
         {backlinks.map((link) => (
           <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">

@@ -1,5 +1,6 @@
 ---
 import { convert as htmlToText } from "html-to-text";
+import { useI18n } from "../i18n/utils";
 import type { DocumentContext } from "../types";
 
 export type Props = {
@@ -10,8 +11,10 @@ const { document } = Astro.props;
 
 const text = htmlToText(document?.rendered?.html as string);
 
-const words = text.split(" ").filter(t => t.length > 0).length;
-const characters = text.length;
+const words = text.split(" ").filter(t => t.length > 0).length.toString();
+const characters = text.length.toString();
+
+const t = useI18n(Astro);
 ---
 
 {document?.rendered && (
@@ -19,10 +22,10 @@ const characters = text.length;
     class="fixed z-40 border text-footer-foreground dark:text-footer-foreground-dark border-footer-border dark:border-footer-border-dark bottom-0 right-0 bg-footer-background dark:bg-footer-background-dark rounded-tl-xl px-2 py-2 flex gap-2 font-title shadow-2xl "
   >
     <p>
-      {words} words
+      {t('footer.wordsCount', { words })}
     </p>
     <p>
-      {characters} characters
+      {t('footer.charactersCount', { characters })}
     </p>
   </footer>
 )}
