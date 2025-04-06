@@ -1,14 +1,20 @@
 ---
-import getContextProps from '@astro-utils/context';
 import { Image } from 'astro:assets';
-import { DOCUMENT_CONTEXT_NAME } from '../constants';
+import { render } from 'astro:content';
 import type { DocumentContext } from '../types';
 
-const { data, rendered } = getContextProps(Astro, DOCUMENT_CONTEXT_NAME) as DocumentContext;
+export type Props = {
+  document: DocumentContext;
+};
+
+const { document } = Astro.props;
+const { data } = document;
 
 const { author, cover, description, title, updated } = data;
 
 const proseClassName = 'prose dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-a:text-purple-500 prose-a:opacity-[0.7] prose-a:hover:opacity-100 prose-h1:text-purple-500 prose-h1:font-heading prose-headings:font-heading prose-p:font-paragraph prose-code:font-code prose-pre:!bg-gray-200 dark:prose-pre:!bg-obsidian-300';
+
+const { Content } = await render(document);
 ---
 
 <article class:list={[
@@ -24,5 +30,5 @@ const proseClassName = 'prose dark:prose-invert lg:prose-lg xl:prose-xl 2xl:pros
     </div>
   </div>
   {cover && <Image src={cover} alt="" class="rounded-3xl shadow"  />}
-  {rendered?.html && (<div set:html={rendered.html} />)}
+  <Content />
 </article>

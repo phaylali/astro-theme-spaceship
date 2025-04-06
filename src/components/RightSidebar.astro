@@ -1,14 +1,21 @@
 ---
 import Sidebar from './Sidebar.astro';
 
+import type { DocumentContext, NavigationContext } from '../types';
 import NavigationBackLinks from './Navigation/BackLinks.astro';
 import NavigationLinks from './Navigation/Links.astro';
 import TableOfContents from './Navigation/TableOfContents.astro';
 
+export type Props = {
+  document?: DocumentContext;
+  navigation: NavigationContext;
+}
+
+const { document, navigation } = Astro.props;
 ---
 
 <Sidebar position="right">
-  <TableOfContents />
-  <NavigationLinks />
-  <NavigationBackLinks />
+  <TableOfContents document={document} />
+  <NavigationLinks document={document} />
+  <NavigationBackLinks navigation={navigation} />
 </Sidebar>

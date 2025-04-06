@@ -1,12 +1,12 @@
 ---
-import getContextProps from "@astro-utils/context";
-import { NAVIGATION_CONTEXT_NAME } from "../../constants";
 import type { NavigationContext } from "../../types";
 
-const { backlinks } = getContextProps(
-  Astro,
-  NAVIGATION_CONTEXT_NAME
-) as NavigationContext;
+export type Props = {
+  navigation: NavigationContext
+};
+
+const { navigation } = Astro.props
+const { backlinks } = navigation;
 
 const shouldRender = !!(backlinks.length && backlinks.length > 0);
 ---

@@ -1,19 +1,15 @@
 ---
-import Context from "@astro-utils/context/context.js";
 
-import AstroLogo from '../content/vault/Assets/astro.png';
-import ObsidianLogo from '../content/vault/Assets/obsidian.svg';
+import AstroLogo from '../content/vault/Assets/logos/astro.png';
+import ObsidianLogo from '../content/vault/Assets/logos/obsidian.svg';
 
-import config from "../../website.config.mjs";
+import website from "../../website.config.mjs";
 
 import Layout from "../components/Layout.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import RightSidebar from "../components/RightSidebar.astro";
 import {
   DOCUMENTS_COLLECTION_NAME,
-  NAVIGATION_CONTEXT_NAME,
-  PAGE_CONTEXT_NAME,
-  WEBSITE_CONTEXT_NAME
 } from "../constants";
 
 import { Image } from "astro:assets";
@@ -26,30 +22,24 @@ const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
 const tree = buildTree(documents);
 ---
 
-<Context contextName={WEBSITE_CONTEXT_NAME} {...config}>
-  <Context contextName={PAGE_CONTEXT_NAME} {...page}>
-    <Context
-      contextName={NAVIGATION_CONTEXT_NAME}
-      {...{
-        tree,
-        backlinks: [],
-      }}
-    >
-        <Layout>
-          <LeftSidebar />
-          <article class="flex flex-col gap-24 rounded-4xl items-center grow-1 justify-center p-3 max-w-full">
-            <section class="flex flex-col gap-2 items-center">
-              <h1 class="text-6xl lg:text-8xl font-title dark:text-white">{config.title}</h1>
-              <p class="text-3xl dark:text-white font-paragraph">A template for publishing Obsidian Vaults with Astrojs</p>
-            </section>
-            <section class="flex flex-col lg:flex-row bg-gray-50 dark:bg-obsidian-50 rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
-              <Image src={AstroLogo} alt="" class="w-[50vw] lg:w-[512px]"  />
-              <span class="text-9xl dark:text-white">+</span>
-              <Image src={ObsidianLogo} alt="" class="w-[50vw] lg:w-[512px]" />
-            </section>
-          </article>
-          <RightSidebar />
-        </Layout>
-    </Context>
-  </Context>
-</Context>
+<Layout page={page}>
+  <LeftSidebar website={website} navigation={{...{
+    tree,
+    backlinks: [],
+  }}} />
+  <article class="flex flex-col gap-24 rounded-4xl items-center grow-1 justify-center p-3 max-w-full">
+    <section class="flex flex-col gap-2 items-center">
+      <h1 class="text-6xl lg:text-8xl font-title dark:text-white">{website.title}</h1>
+      <p class="text-3xl dark:text-white font-paragraph">A template for publishing Obsidian Vaults with Astrojs</p>
+    </section>
+    <section class="flex flex-col lg:flex-row bg-gray-50 dark:bg-obsidian-50 rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
+      <Image src={AstroLogo} alt="" class="w-[50vw] lg:w-[512px]"  />
+      <span class="text-9xl dark:text-white">+</span>
+      <Image src={ObsidianLogo} alt="" class="w-[50vw] lg:w-[512px]" />
+    </section>
+  </article>
+  <RightSidebar navigation={{...{
+    tree,
+    backlinks: [],
+  }}} />
+</Layout>

@@ -2,7 +2,6 @@
 
 ## TODO
 
-- [ ] Embedded Images
 - [ ] Cover Images
 - [ ] SEO
 - [ ] Callouts
@@ -10,4 +9,3 @@
 - [ ] Global Graph View
 - [ ] Tree View Order
 - [ ] Tags
-- [x] Table of Contents

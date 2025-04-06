@@ -1,6 +1,4 @@
 ---
-import getContextProps from "@astro-utils/context";
-import { DOCUMENT_CONTEXT_NAME } from "../../constants";
 import type { DocumentContext } from "../../types";
 
 export type Heading = {
@@ -9,12 +7,13 @@ export type Heading = {
   text: string;
 };
 
-const document = getContextProps(
-  Astro,
-  DOCUMENT_CONTEXT_NAME
-) as DocumentContext;
+export type Props = {
+  document?: DocumentContext;
+}
 
-const headings = (document.rendered?.metadata as any)?.headings as Heading[];
+const { document } = Astro.props;
+
+const headings = (document?.rendered?.metadata as any)?.headings as Heading[];
 
 const shouldRender = !!(headings?.length && headings.length > 0);
 ---

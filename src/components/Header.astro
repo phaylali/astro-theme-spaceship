@@ -1,14 +1,18 @@
 ---
-import getContextProps from "@astro-utils/context";
-import { WEBSITE_CONTEXT_NAME } from "../constants";
 import type { WebsiteContext } from "../types";
 
-const website = getContextProps(Astro, WEBSITE_CONTEXT_NAME) as WebsiteContext;
+export type Props = {
+  website: WebsiteContext;
+};
+
+const { website } = Astro.props;
 ---
 
 <header class="h-11 px-2">
   <a href="/" class="font-title dark:text-white flex gap-2">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
       width="24"
       height="24"
       ><g

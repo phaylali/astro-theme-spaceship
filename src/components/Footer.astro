@@ -1,21 +1,20 @@
 ---
-import getContextProps from "@astro-utils/context";
 import { convert as htmlToText } from "html-to-text";
-import { DOCUMENT_CONTEXT_NAME } from "../constants";
 import type { DocumentContext } from "../types";
 
-const document = getContextProps(
-  Astro,
-  DOCUMENT_CONTEXT_NAME
-) as DocumentContext;
+export type Props = {
+  document?: DocumentContext;
+};
 
-const text = htmlToText(document.rendered?.html as string);
+const { document } = Astro.props;
+
+const text = htmlToText(document?.rendered?.html as string);
 
 const words = text.split(" ").filter(t => t.length > 0).length;
 const characters = text.length;
 ---
 
-{document.rendered && (
+{document?.rendered && (
   <footer
     class="fixed z-40 border border-gray-300 dark:border-obsidian-300 bottom-0 right-0 bg-gray-50 dark:bg-obsidian-50 rounded-tl-xl px-2 py-2 flex gap-2 font-title shadow-2xl dark:text-white"
   >

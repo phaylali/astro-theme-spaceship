@@ -1,12 +1,13 @@
 ---
-import getContextProps from '@astro-utils/context';
-import { PAGE_CONTEXT_NAME } from '../constants';
 import type { PageContext } from '../types';
 
-const {
-  seo,
-  title,
-} = getContextProps(Astro, PAGE_CONTEXT_NAME) as PageContext;
+export type Props = {
+  page: PageContext;
+};
+
+const { page } = Astro.props;
+
+const { seo, title } = page;
 
 ---
 <title>{seo.title ?? title}</title>

@@ -1,17 +1,17 @@
 ---
-import getContextProps from '@astro-utils/context';
-import { NAVIGATION_CONTEXT_NAME } from '../../constants';
-import type { NavigationContext } from '../../types';
+import type { NavigationContext } from "../../types";
 
-import Leaf from './Leaf.astro';
+import Leaf from "./Leaf.astro";
 
-const { tree } = getContextProps(Astro, NAVIGATION_CONTEXT_NAME) as NavigationContext;
+export type Props = {
+  navigation: NavigationContext;
+};
 
+const { tree } = Astro.props.navigation;
 ---
+
 <nav>
   <ul class="flex flex-col gap-0.5">
-    {tree.map((document) => (
-      <Leaf node={document} />
-    ))}
+    {tree.map((document) => <Leaf node={document} />)}
   </ul>
 </nav>

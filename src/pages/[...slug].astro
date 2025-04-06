@@ -1,22 +1,16 @@
 ---
-import Context from "@astro-utils/context/context.js";
 import { getCollection } from "astro:content";
 
 import {
-  DOCUMENT_CONTEXT_NAME,
   DOCUMENTS_COLLECTION_NAME,
-  NAVIGATION_CONTEXT_NAME,
-  PAGE_CONTEXT_NAME,
-  WEBSITE_CONTEXT_NAME,
 } from "../constants";
 import type {
   DocumentContext,
   NavigationContext,
   PageContext,
-  WebsiteContext,
 } from "../types";
 
-import config from "../../website.config.mjs";
+import website from "../../website.config.mjs";
 import { buildPage } from "../helpers/buildPage";
 
 import type { GetStaticPaths } from "astro";
@@ -30,7 +24,6 @@ export type Props = {
   document: DocumentContext;
   navigation: NavigationContext;
   page: PageContext;
-  website: WebsiteContext;
 };
 
 export const getStaticPaths = (async () => {
@@ -48,25 +41,15 @@ export const getStaticPaths = (async () => {
           d => d.data.links?.some(l => l.href === document.data.permalink)
         )
       },
-      website: config,
       page: buildPage(document),
     } satisfies Props,
   }));
 }) satisfies GetStaticPaths;
 
-const { document, navigation, page, website } = Astro.props;
+const { document, navigation, page } = Astro.props;
 ---
-
-<Context contextName={WEBSITE_CONTEXT_NAME} {...website}>
-  <Context contextName={NAVIGATION_CONTEXT_NAME} {...navigation}>
-    <Context contextName={PAGE_CONTEXT_NAME} {...page}>
-      <Context contextName={DOCUMENT_CONTEXT_NAME} {...document}>
-        <Layout>
-          <LeftSidebar />
-          <Article />
-          <RightSidebar />
-        </Layout>
-      </Context>
-    </Context>
-  </Context>
-</Context>
+<Layout page={page} document={document}>
+  <LeftSidebar website={website} navigation={navigation} />
+  <Article document={document} />
+  <RightSidebar document={document} navigation={navigation} />
+</Layout>

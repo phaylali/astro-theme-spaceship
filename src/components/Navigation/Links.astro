@@ -1,15 +1,14 @@
 ---
-import getContextProps from "@astro-utils/context";
-import { DOCUMENT_CONTEXT_NAME } from "../../constants";
 import type { DocumentContext } from "../../types";
 
-const document = getContextProps(
-  Astro,
-  DOCUMENT_CONTEXT_NAME
-) as DocumentContext;
+export type Props = {
+  document?: DocumentContext;
+};
 
-const links = document.data?.links ?? [];
-const images = document.data?.images ?? [];
+const { document } = Astro.props;
+
+const links = document?.data?.links ?? [];
+const images = document?.data?.images ?? [];
 
 const shouldRender = !!((links.length && links.length > 0) || (images.length && images.length > 0));
 ---
