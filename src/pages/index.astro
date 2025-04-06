@@ -9,7 +9,7 @@ import Layout from "../components/Layout.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import RightSidebar from "../components/RightSidebar.astro";
 import {
-  DOCUMENTS_COLLECTION_NAME,
+DOCUMENTS_COLLECTION_NAME,
 } from "../constants";
 
 import { Image } from "astro:assets";
@@ -34,10 +34,10 @@ const tree = buildTree(documents);
   }}} />
   <article class="flex flex-col gap-24 rounded-4xl items-center grow-1 justify-center p-3 max-w-full">
     <section class="flex flex-col gap-2 items-center">
-      <h1 class="text-6xl lg:text-8xl font-title dark:text-white">{website.title}</h1>
-      <p class="text-3xl dark:text-white font-paragraph">A template for publishing Obsidian Vaults with Astrojs</p>
+      <h1 class="text-6xl lg:text-8xl font-title text-article-title-foreground dark:text-article-title-foreground-dark">{website.title}</h1>
+      <p class="text-3xl font-paragraph text-paragraph-foreground dark:text-paragraph-foreground-dark">A template for publishing Obsidian Vaults with Astrojs</p>
     </section>
-    <section class="flex flex-col lg:flex-row bg-gray-50 dark:bg-obsidian-50 rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
+    <section class="flex flex-col lg:flex-row bg-article-background dark:bg-article-background-dark rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
       <Image src={AstroLogo} alt="" class="w-[50vw] lg:w-[512px]"  />
       <span class="text-9xl dark:text-white">+</span>
       <Image src={ObsidianLogo} alt="" class="w-[50vw] lg:w-[512px]" />
