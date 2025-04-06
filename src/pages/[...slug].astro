@@ -3,16 +3,16 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
 import {
-  AUTHORS_COLLECTION_NAME,
-  DOCUMENTS_COLLECTION_NAME,
-  TAGS_COLLECTION_NAME,
+AUTHORS_COLLECTION_NAME,
+DOCUMENTS_COLLECTION_NAME,
+TAGS_COLLECTION_NAME,
 } from "../constants";
 import type {
-  AuthorContext,
-  DocumentContext,
-  NavigationContext,
-  PageContext,
-  TagsContext,
+AuthorContext,
+DocumentContext,
+NavigationContext,
+PageContext,
+TagsContext,
 } from "../types";
 
 import website from "../../website.config.mjs";
@@ -41,7 +41,7 @@ export const getStaticPaths = (async () => {
 
   const tree = buildTree(documents);
 
-  return documents.map((document) => ({
+  return documents.filter(d => d.data.publish !== false).map((document) => ({
     params: { slug: document.id },
     props: {
       author: buildAuthor(

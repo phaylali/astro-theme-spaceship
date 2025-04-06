@@ -6,6 +6,10 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
   const root: Node<CollectionEntry<'documents'>>[] = [];
 
   for (const item of data) {
+    if (item.data.publish === false) {
+      continue;
+    }
+
     const parts = item.id.split('/');
     let currentLevel = root;
 
