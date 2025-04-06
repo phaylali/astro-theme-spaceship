@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://aitorllj93.github.io',
+  base: 'astro-theme-spaceship',
   integrations: [],
   markdown: {
     shikiConfig: {
