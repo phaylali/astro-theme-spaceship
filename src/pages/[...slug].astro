@@ -1,0 +1,72 @@
+---
+import Context from "@astro-utils/context/context.js";
+import { getCollection } from "astro:content";
+
+import {
+  DOCUMENT_CONTEXT_NAME,
+  DOCUMENTS_COLLECTION_NAME,
+  NAVIGATION_CONTEXT_NAME,
+  PAGE_CONTEXT_NAME,
+  WEBSITE_CONTEXT_NAME,
+} from "../constants";
+import type {
+  DocumentContext,
+  NavigationContext,
+  PageContext,
+  WebsiteContext,
+} from "../types";
+
+import config from "../../website.config.mjs";
+import { buildPage } from "../helpers/buildPage";
+
+import type { GetStaticPaths } from "astro";
+import Article from "../components/Article.astro";
+import Layout from "../components/Layout.astro";
+import LeftSidebar from "../components/LeftSidebar.astro";
+import RightSidebar from "../components/RightSidebar.astro";
+import { buildTree } from "../helpers/buildTree";
+
+export type Props = {
+  document: DocumentContext;
+  navigation: NavigationContext;
+  page: PageContext;
+  website: WebsiteContext;
+};
+
+export const getStaticPaths = (async () => {
+  const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
+
+  const tree = buildTree(documents);
+
+  return documents.map((document) => ({
+    params: { slug: document.id },
+    props: {
+      document,
+      navigation: {
+        tree,
+        backlinks: documents.filter(
+          d => d.data.links?.some(l => l.href === document.data.permalink)
+        )
+      },
+      website: config,
+      page: buildPage(document),
+    } satisfies Props,
+  }));
+}) satisfies GetStaticPaths;
+
+const { document, navigation, page, website } = Astro.props;
+---
+
+<Context contextName={WEBSITE_CONTEXT_NAME} {...website}>
+  <Context contextName={NAVIGATION_CONTEXT_NAME} {...navigation}>
+    <Context contextName={PAGE_CONTEXT_NAME} {...page}>
+      <Context contextName={DOCUMENT_CONTEXT_NAME} {...document}>
+        <Layout>
+          <LeftSidebar />
+          <Article />
+          <RightSidebar />
+        </Layout>
+      </Context>
+    </Context>
+  </Context>
+</Context>

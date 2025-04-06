@@ -1,0 +1,42 @@
+---
+import getContextProps from "@astro-utils/context";
+import { DOCUMENT_CONTEXT_NAME } from "../../constants";
+import type { DocumentContext } from "../../types";
+
+export type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
+const document = getContextProps(
+  Astro,
+  DOCUMENT_CONTEXT_NAME
+) as DocumentContext;
+
+const headings = (document.rendered?.metadata as any)?.headings as Heading[];
+
+const shouldRender = !!(headings?.length && headings.length > 0);
+---
+
+{
+   shouldRender && (
+    <nav class="ml-4 mb-4">
+      <h2 class="text-xl mb-2">Table of Contents</h2>
+      <ul class="flex flex-col gap-0.5">
+        {headings.map(({ depth, slug, text }) => (
+          <li class="w-full rounded-lg py-1 px-2 hover:bg-gray-300 dark:hover:bg-obsidian-300">
+            <a class:list={[
+              "flex",
+              depth === 2 && "ml-2",
+              depth === 3 && "ml-4",
+              depth === 4 && "ml-6",
+            ]} href={`#${slug}`}>
+              <span class="truncate">{text}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

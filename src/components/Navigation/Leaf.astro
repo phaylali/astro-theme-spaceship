@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { Node } from "../../types";
+
+export type Props = {
+  node: Node<CollectionEntry<"documents">>;
+};
+
+const { node } = Astro.props;
+
+const isActive = node.data && Astro.url.pathname === node.data.data.permalink;
+
+const isFolder = node.children && node.children.length;
+---
+
+<li
+  class:list={[
+    "w-full rounded-lg py-1 px-2",
+    !isFolder && 'hover:bg-gray-300 dark:hover:bg-obsidian-300',
+    isActive && "bg-gray-300 dark:bg-obsidian-300",
+  ]}
+>
+  {
+    !isFolder && node.data ? (
+      <a
+        href={node.data.data.permalink}
+        title={node.data.data.title}
+        class="truncate block"
+      >
+        {node.data.data.title}
+      </a>
+    ) : null
+  }
+  {
+    isFolder ? (
+      <p class="capitalize mb-0.5">{node.name}</p>
+      <ul class="flex flex-col gap-0.5">
+        {node.children?.map((c) => (
+          <Astro.self node={c} />
+        ))}
+      </ul>
+    ) : null
+  }
+</li>

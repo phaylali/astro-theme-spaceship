@@ -1,0 +1,56 @@
+---
+import Context from "@astro-utils/context/context.js";
+import { getCollection } from "astro:content";
+import config from "../../website.config.mjs";
+import Layout from "../components/Layout.astro";
+import LeftSidebar from "../components/LeftSidebar.astro";
+import RightSidebar from "../components/RightSidebar.astro";
+import {
+  DOCUMENTS_COLLECTION_NAME,
+  NAVIGATION_CONTEXT_NAME,
+  PAGE_CONTEXT_NAME,
+  WEBSITE_CONTEXT_NAME,
+} from "../constants";
+import { buildTree } from "../helpers/buildTree";
+import type { PageContext } from "../types";
+
+const page: PageContext = {
+  language: "en",
+  title: `Document not found`,
+  seo: {
+    description: `The document you are looking for does not exist.`,
+  },
+};
+
+const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
+
+const tree = buildTree(documents);
+
+const entry = Astro.url.searchParams.get("entry");
+---
+
+<Context contextName={WEBSITE_CONTEXT_NAME} {...config}>
+  <Context
+    contextName={NAVIGATION_CONTEXT_NAME}
+    {...{
+      tree,
+      backlinks: [],
+    }}
+  >
+    <Context contextName={PAGE_CONTEXT_NAME} {...page}>
+      <Layout>
+        <LeftSidebar />
+
+        <article class="p-8 bg-gray-50 rounded-xl grow-1">
+          <h1 class="text-4xl mb-4">
+            Document <strong>{entry}</strong> not found
+          </h1>
+          <p class="text-lg">
+            The document you are looking for does not exist.
+          </p>
+        </article>
+        <RightSidebar />
+      </Layout>
+    </Context>
+  </Context>
+</Context>

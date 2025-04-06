@@ -1,0 +1,15 @@
+---
+import getContextProps from '@astro-utils/context';
+import { PAGE_CONTEXT_NAME } from '../constants';
+import type { PageContext } from '../types';
+
+const {
+  seo,
+  title,
+} = getContextProps(Astro, PAGE_CONTEXT_NAME) as PageContext;
+
+---
+<title>{seo.title ?? title}</title>
+{seo.description && <meta name="description" content={seo.description} />}
+{seo.keywords && <meta name="keywords" content={seo.keywords} />}
+<link rel="canonical" href={seo.canonicalUrl ?? Astro.url} />

@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+import getContextProps from '@astro-utils/context';
+import { PAGE_CONTEXT_NAME } from '../constants';
+import type { PageContext } from '../types';
+
+import Footer from './Footer.astro';
+import SEO from './SEO.astro';
+
+const {
+  language,
+} = getContextProps(Astro, PAGE_CONTEXT_NAME) as PageContext;
+---
+
+<html class="scroll-smooth" lang={language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <SEO />
+  </head>
+  <body class="w-full h-full bg-gray-200 dark:bg-obsidian-200 bg-texture-binding-light dark:bg-texture-binding-dark overflow-x-hidden">
+    <main class="flex p-3 lg:p-6 lg:gap-6 items-start overflow-x-hidden">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
