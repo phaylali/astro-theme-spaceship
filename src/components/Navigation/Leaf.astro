@@ -15,9 +15,9 @@ const isFolder = node.children && node.children.length;
 
 <li
   class:list={[
-    "w-full rounded-lg py-1 px-2",
-    !isFolder && 'hover:bg-gray-300 dark:hover:bg-obsidian-300',
-    isActive && "bg-gray-300 dark:bg-obsidian-300",
+    "w-full rounded-lg py-1 px-2 text-menu-foreground dark:text-menu-foreground-dark",
+    !isFolder && 'hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark',
+    isActive && "bg-menu-active-background dark:bg-menu-active-background-dark",
   ]}
 >
   {

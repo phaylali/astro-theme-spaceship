@@ -13,11 +13,11 @@ const shouldRender = !!(backlinks.length && backlinks.length > 0);
 
 {
   shouldRender && (
-    <nav class="ml-4 mb-4">
+    <nav class="ml-4 mb-4 text-menu-foreground dark:text-menu-foreground-dark">
       <h2 class="text-xl mb-2">Linked Mentions</h2>
       <ul class="flex flex-col gap-0.5">
         {backlinks.map((link) => (
-          <li class="w-full rounded-lg py-1 px-2 hover:bg-gray-300 dark:hover:bg-obsidian-300">
+          <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
             <a
               class="flex gap-2"
               href={link.data.permalink}

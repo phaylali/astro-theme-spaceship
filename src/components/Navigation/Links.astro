@@ -15,11 +15,11 @@ const shouldRender = !!((links.length && links.length > 0) || (images.length && 
 
 {
   shouldRender && (
-    <nav class="ml-4 mb-4">
+    <nav class="ml-4 mb-4 text-menu-foreground dark:text-menu-foreground-dark">
       <h2 class="text-xl mb-2">Links</h2>
       <ul class="flex flex-col gap-0.5">
         {links.map((link) => (
-          <li class="w-full rounded-lg py-1 px-2 hover:bg-gray-300 dark:hover:bg-obsidian-300">
+          <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
             <a class="flex gap-2" href={link.href} title={link.title}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const shouldRender = !!((links.length && links.length > 0) || (images.length && 
           </li>
         ))}
         {images.map((image) => (
-          <li class="w-full rounded-lg py-1 px-2 hover:bg-gray-300 dark:hover:bg-obsidian-300">
+          <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
             <a class="flex gap-2" href={image.href} title={image.title}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

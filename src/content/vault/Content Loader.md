@@ -20,7 +20,7 @@
 
 ## 🧰 Need a Full Theme?
 
-Check out [`astro-theme-spaceship`](https://github.com/aitorllj93/astro-theme-spaceship) — a ready-to-use theme built specifically for publishing Obsidian vaults with Astro. It includes:
+Check out [astro-theme-spaceship](https://github.com/aitorllj93/astro-theme-spaceship) — a ready-to-use theme built specifically for publishing Obsidian vaults with Astro. It includes:
 
 - Preconfigured `astro-obsidian-loader` integration
 - Clean, responsive layout

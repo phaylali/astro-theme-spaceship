@@ -24,7 +24,7 @@ const rightArrowClass =
   <label
     for={`${position}-drawer-toggle`}
     class:list={[
-      "absolute top-[22px]  z-30 bg-gray-400 cursor-pointer dark:bg-obsidian-200 dark:bg-texture-binding-dark rounded-full inline-block p-3 transition-all duration-500 peer-checked:rotate-180 ",
+      "absolute top-[22px]  z-30 cursor-pointer bg-button-background dark:bg-button-background-dark dark:bg-texture-binding-dark rounded-full inline-block p-3 transition-all duration-500 peer-checked:rotate-180 ",
       position === "left" ? leftArrowClass : rightArrowClass,
     ]}
   >
@@ -34,7 +34,7 @@ const rightArrowClass =
       height="24"
       viewBox="-6 0 24 24"
       class:list={[
-        "text-black dark:text-white scale-125",
+        "text-button-foreground dark:text-button-foreground-dark scale-125",
         position === "left" ? "" : "rotate-180",
       ]}
       ><defs
@@ -54,7 +54,7 @@ const rightArrowClass =
     class:list={[
       "fixed top-[11px] z-20 transition-all duration-500 transform peer-checked:translate-x-0 peer-checked:absolute lg:peer-checked:static",
       position === "left" ? leftSidebarClass : rightSidebarClass,
-      "rounded-xl py-8 px-2 h-[calc(100vh_-_50px)] w-[80vw] lg:w-[15vw] bg-gray-50 dark:bg-obsidian-50 dark:text-white shadow-lg",
+      "rounded-xl py-8 px-2 h-[calc(100vh_-_50px)] w-[80vw] lg:w-[15vw] bg-sidebar-background dark:bg-sidebar-background-dark shadow-lg",
     ]}
   >
     <slot />

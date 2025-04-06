@@ -71,17 +71,76 @@
   --color-purple-400: hsl(257, 88.88%, 70.95%);
   --color-purple-500: hsl(258, 88%, 66%);
 
+  --color-primary: var(--color-purple-500);
+  --color-text: rgb(0, 0, 0);
+  --color-text-dark: rgb(255, 255, 255);
+  
+  /** Components **/
+  --color-background: var(--color-gray-200);
+  --color-article-background: var(--color-gray-50);
+  --color-article-title-foreground: var(--color-primary);
+  --color-sidebar-background: var(--color-gray-50);
+  --color-menu-active-background: var(--color-gray-300);
+  --color-menu-foreground: var(--color-text);
+  --color-badge-background: var(--color-gray-50);
+  --color-badge-foreground: var(--color-text);
+  --color-badge-border: var(--color-gray-300);
+  --color-button-background: var(--color-gray-400);
+  --color-button-foreground: var(--color-text);
+  --color-footer-background: var(--color-gray-50);
+  --color-footer-foreground: var(--color-text);
+  --color-footer-border: var(--color-gray-300);
+
+  /** Prose **/
+  --color-blockquote-foreground: var(--color-text);
+  --color-code-background: var(--color-gray-200);
+  --color-code-foreground: var(--color-text);
+  --color-heading-foreground: var(--color-text);
+  --color-li-marker-foreground: var(--color-text);
+  --color-paragraph-foreground: var(--color-text);
+  --color-pre-background: var(--color-gray-200);
+  --color-strong-foreground: var(--color-text);
+
+  /** Components: dark **/
+  --color-background-dark: var(--color-obsidian-200);
+  --color-article-background-dark: var(--color-obsidian-50);
+  --color-article-title-foreground-dark: var(--color-primary);
+  --color-sidebar-background-dark: var(--color-obsidian-50);
+  --color-menu-active-background-dark: var(--color-obsidian-300);
+  --color-menu-foreground-dark: var(--color-text-dark);
+  --color-badge-background-dark: var(--color-obsidian-50);
+  --color-badge-foreground-dark: var(--color-text-dark);
+  --color-badge-border-dark: var(--color-obsidian-300);
+  --color-button-background-dark: var(--color-obsidian-400);
+  --color-button-foreground-dark: var(--color-text-dark);
+  --color-footer-background-dark: var(--color-obsidian-50);
+  --color-footer-foreground-dark: var(--color-text-dark);
+  --color-footer-border-dark: var(--color-obsidian-300);
+
+  /** Prose: dark **/
+  --color-blockquote-foreground-dark: var(--color-text-dark);
+  --color-code-background-dark: var(--color-obsidian-300);
+  --color-code-foreground-dark: var(--color-text-dark);
+  --color-heading-foreground-dark: var(--color-text-dark);
+  --color-li-marker-foreground-dark: var(--color-text-dark);
+  --color-paragraph-foreground-dark: var(--color-text-dark);
+  --color-pre-background-dark: var(--color-obsidian-300);
+  --color-strong-foreground-dark: var(--color-text-dark);
+
   --font-title: "JetBrains Mono Variable", "sans-serif";
   --font-heading: "Space Grotesk Variable",  "sans-serif";
   --font-paragraph: "IBM Plex Sans Variable";
   --font-code: "Fira Code Variable", "ui-monospace";
 }
 
+.astro-code code {
+  background: transparent !important;
+}
+
 @media (prefers-color-scheme: dark) {
   .astro-code,
   .astro-code span {
     color: var(--shiki-dark) !important;
-    /* Opcional, si también quieres estilos de fuente */
     font-style: var(--shiki-dark-font-style) !important;
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
