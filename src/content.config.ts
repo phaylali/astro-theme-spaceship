@@ -1,8 +1,10 @@
 import { ObsidianDocumentSchema, ObsidianMdLoader } from "astro-loader-obsidian";
-import { defineCollection } from 'astro:content';
+import { glob } from "astro/loaders";
+import { defineCollection, z } from 'astro:content';
 
 import config from '../website.config.mjs';
-import { DOCUMENTS_COLLECTION_NAME } from './constants';
+import { AUTHORS_COLLECTION_NAME, DOCUMENTS_COLLECTION_NAME, TAGS_COLLECTION_NAME } from './constants';
+
 
 export const collections = {
 	[DOCUMENTS_COLLECTION_NAME]: defineCollection({
@@ -16,5 +18,20 @@ export const collections = {
       // or
       cover: image().optional(),
     }),
+	}),
+	[AUTHORS_COLLECTION_NAME]: defineCollection({
+		loader: glob({ pattern: "**/*.yml", base: "./src/content/authors" }),
+		schema:  ({ image }) => z.object({
+			name: z.string(),
+			avatar: image().optional(),
+			description: z.string().optional(),
+		})
+	}),
+	[TAGS_COLLECTION_NAME]: defineCollection({
+		loader: glob({ pattern: "**/*.yml", base: "./src/content/tags" }),
+		schema:  () => z.object({
+			name: z.string(),
+			description: z.string().optional(),
+		})
 	})
 };

@@ -1,18 +1,20 @@
 ---
 import { Image } from 'astro:assets';
 import { render } from 'astro:content';
-import type { DocumentContext } from '../types';
+import type { AuthorContext, DocumentContext, TagsContext } from '../types';
 
 export type Props = {
+  author?: AuthorContext;
   document: DocumentContext;
+  tags: TagsContext;
 };
 
-const { document } = Astro.props;
+const { author, document, tags } = Astro.props;
 const { data } = document;
 
-const { author, cover, description, title, updated } = data;
+const { cover, description, title, updated } = data;
 
-const proseClassName = 'prose dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-a:text-purple-500 prose-a:opacity-[0.7] prose-a:hover:opacity-100 prose-h1:text-purple-500 prose-h1:font-heading prose-headings:font-heading prose-p:font-paragraph prose-code:font-code prose-pre:!bg-gray-200 dark:prose-pre:!bg-obsidian-300';
+const proseClassName = 'prose dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-a:text-purple-500 prose-a:opacity-[0.7] prose-a:hover:opacity-100 prose-h1:text-purple-500 prose-h1:font-heading prose-headings:font-heading prose-p:font-paragraph prose-code:font-code prose-pre:!bg-gray-200 dark:prose-pre:!bg-obsidian-300 prose-img:rounded-3xl';
 
 const { Content } = await render(document);
 ---
@@ -25,8 +27,17 @@ const { Content } = await render(document);
   <div class="flex flex-col lg:flex-row justify-end">
     <p class="!m-0 !mb-8 text-2xl lg:text-3xl xl:text-4xl !font-heading text-balance">{description}</p>
     <div class="flex flex-col lg:items-end gap-2 w-full font-title">
-      {author && <span>by {author}</span>}
+      {author && <span>by {author.data.name}</span>}
       {updated && <span>{updated.toLocaleDateString('es-ES')}</span>}
+      {
+        tags.tags.length > 0 && (
+          <div class="flex gap-4">
+            {tags.tags.map((t) => (
+              <span class="border border-gray-300 dark:border-obsidian-300 bg-gray-50 dark:bg-obsidian-50 rounded-xl px-2 py-2 font-title text-base dark:text-white">{t.data.name}</span>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
   {cover && <Image src={cover} alt="" class="rounded-3xl shadow"  />}

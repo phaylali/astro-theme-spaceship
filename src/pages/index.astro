@@ -14,7 +14,6 @@ import {
 
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { page } from "../__fixtures__/context";
 import { buildTree } from "../helpers/buildTree";
 
 const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
@@ -22,7 +21,13 @@ const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
 const tree = buildTree(documents);
 ---
 
-<Layout page={page}>
+<Layout page={{
+  title: website.title,
+  language: 'en',
+  seo: {
+    description: 'Astro Template for publishing your Obsidian Vault',
+  }
+}}>
   <LeftSidebar website={website} navigation={{...{
     tree,
     backlinks: [],

@@ -17,7 +17,11 @@ export type PageContext = {
   seo: Seo;
 };
 
+export type AuthorContext = CollectionEntry<"authors">;
 export type DocumentContext = CollectionEntry<"documents">;
+export type TagsContext = {
+  tags: CollectionEntry<"tags">[];
+};
 
 export type Node<T> = {
   name: string;
@@ -28,4 +32,4 @@ export type Node<T> = {
 export type NavigationContext = {
   tree: Node<CollectionEntry<"documents">>[];
   backlinks: CollectionEntry<"documents">[];
-}
+};
