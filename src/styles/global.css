@@ -147,13 +147,24 @@
   }
 }
 
-@utility bg-texture-binding-dark {
-  background-image: url("https://www.transparenttextures.com/patterns/binding-dark.png");
+@utility bg-texture {
+  opacity: .12;
+  mix-blend-mode: multiply;
+  z-index: 100;
+  isolation: isolate;
+  pointer-events: none;
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  inset: 0;
 }
 
-    
-@utility bg-texture-binding-light {
-  background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
+@utility bg-texture-light {
+  background-image: url(../assets/texture-light.png);
 }
 
-    
+@utility bg-texture-dark {
+  background-image: url(../assets/texture-dark.png);
+}
