@@ -23,7 +23,7 @@ const t = useI18n(Astro);
 
 {
    shouldRender && (
-    <nav class="ml-4 mb-4 text-menu-foreground dark:text-menu-foreground-dark">
+   <nav class="ml-4 mb-4 text-menu-foreground dark:text-menu-foreground-dark font-menu">
       <h2 class="text-xl mb-2">{t('nav.tableOfContents')}</h2>
       <ul class="flex flex-col gap-0.5">
         {headings.map(({ depth, slug, text }) => (

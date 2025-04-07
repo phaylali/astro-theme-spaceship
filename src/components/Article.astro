@@ -14,7 +14,7 @@ const { data } = document;
 
 const { cover, description, title, updated } = data;
 
-const proseClassName = 'prose text-paragraph-foreground dark:text-paragraph-foreground-dark prose-blockquote:border-text dark:prose-blockquote:border-text-dark prose-blockquote:text-blockquote-foreground dark:prose-blockquote:text-blockquote-foreground-dark prose-code:rounded-lg prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none prose-code:text-code-foreground dark:prose-code:text-code-foreground-dark prose-code:bg-code-background dark:prose-code:bg-code-background-dark prose-li:marker:text-li-marker-foreground dark:prose-li:marker:text-li-marker-foreground-dark prose-strong:text-strong-foreground dark:prose-strong:text-strong-foreground-dark prose-headings:text-heading-foreground dark:prose-headings:text-heading-foreground-dark dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-a:text-primary prose-a:opacity-[0.7] prose-a:hover:opacity-100 prose-h1:text-article-title-foreground dark:prose-h1:article-title-foreground-dark prose-h1:font-heading prose-headings:font-heading prose-p:font-paragraph prose-code:font-code prose-pre:!bg-pre-background dark:prose-pre:!bg-pre-background-dark prose-img:rounded-3xl';
+const proseClassName = 'prose text-paragraph-foreground dark:text-paragraph-foreground-dark prose-blockquote:border-text dark:prose-blockquote:border-text-dark prose-blockquote:text-blockquote-foreground dark:prose-blockquote:text-blockquote-foreground-dark prose-code:rounded-lg prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none prose-code:text-code-foreground dark:prose-code:text-code-foreground-dark prose-code:bg-code-background dark:prose-code:bg-code-background-dark prose-li:marker:text-li-marker-foreground dark:prose-li:marker:text-li-marker-foreground-dark prose-strong:text-strong-foreground dark:prose-strong:text-strong-foreground-dark prose-headings:text-heading-foreground dark:prose-headings:text-heading-foreground-dark dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-a:text-primary prose-a:opacity-[0.7] prose-a:hover:opacity-100 prose-h1:text-article-title-foreground dark:prose-h1:article-title-foreground-dark prose-h1:font-title prose-headings:font-heading prose-p:font-paragraph prose-code:font-code prose-pre:!bg-pre-background dark:prose-pre:!bg-pre-background-dark prose-img:rounded-3xl';
 
 const { Content } = await render(document);
 ---
@@ -26,14 +26,14 @@ const { Content } = await render(document);
   <h1 class="text-center text-article-title-foreground dark:text-article-title-foreground-dark">{title}</h1>
   <div class="flex flex-col lg:flex-row justify-end">
     <p class="!m-0 !mb-8 text-2xl lg:text-3xl xl:text-4xl !font-heading text-balance">{description}</p>
-    <div class="flex flex-col lg:items-end gap-2 w-full font-title">
+    <div class="flex flex-col lg:items-end gap-2 w-full font-heading">
       {author && <span>by {author.data.name}</span>}
       {updated && <span>{updated.toLocaleDateString('es-ES')}</span>}
       {
         tags.tags.length > 0 && (
-          <div class="flex gap-4">
+          <div class="flex flex-wrap flex-row-reverse gap-4">
             {tags.tags.map((t) => (
-              <span class="border border-badge-border dark:border-badge-border-dark bg-badge-background dark:bg-badge-background-dark rounded-xl px-2 py-2 font-title text-base text-badge-foreground dark:text-badge-foreground-dark">{t.data.name}</span>
+              <span class="border border-badge-border dark:border-badge-border-dark bg-badge-background dark:bg-badge-background-dark rounded-xl px-2 py-2 font-menu text-base text-badge-foreground dark:text-badge-foreground-dark">{t.data.name}</span>
             ))}
           </div>
         )
