@@ -25,7 +25,7 @@ const t = useI18n(Astro);
    shouldRender && (
    <nav class=" text-menu-foreground dark:text-menu-foreground-dark font-menu">
       <h2 class="text-xl mb-2">{t('nav.tableOfContents')}</h2>
-      <ul class="flex flex-col gap-0.5">
+      <ul class="flex flex-col gap-0.5 h-[calc(100vh_-_250px)] overflow-auto">
         {headings.map(({ depth, slug, text }) => (
           <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
             <a class:list={[
