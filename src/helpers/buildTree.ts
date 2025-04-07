@@ -10,7 +10,7 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
       continue;
     }
 
-    const parts = item.data.permalink.split('/').filter(p => p !== '');
+    const parts = item.data.permalink.replace(import.meta.env.BASE_URL, '').split('/').filter((p, i) => p !== '');
     let currentLevel = root;
 
     for (let i = 0; i < parts.length; i++) {
@@ -20,7 +20,7 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
       if (!existingNode) {
         existingNode = { 
           name: part.replaceAll('-', ' '),
-          permalink: `/${parts.slice(0, i + 1).join('/')}`,
+          permalink: `${import.meta.env.BASE_URL}/${parts.slice(0, i + 1).join('/')}`.replace('//', '/'),
           children: [] 
         };
         currentLevel.push(existingNode);
@@ -28,7 +28,7 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
 
       if (i === parts.length - 1) {
         existingNode.name = item.data.title;
-        existingNode.permalink = item.data.permalink;
+        existingNode.permalink = item.data.permalink.replace('//', '/');
         existingNode.data = item;
       }
 

@@ -23,7 +23,7 @@ const isFolder = node.children && node.children.length;
   {
     !isFolder && node.data ? (
       <a
-        href={node.data.data.permalink}
+        href={node.permalink}
         title={node.data.data.title}
         class="truncate block"
       >
