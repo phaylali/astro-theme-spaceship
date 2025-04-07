@@ -26,6 +26,7 @@ export type TagsContext = {
 
 export type Node<T> = {
   name: string;
+  permalink: string;
   children?: Node<T>[];
   data?: T;
 };

@@ -8,7 +8,7 @@ export type Props = {
 
 const { node } = Astro.props;
 
-const isActive = node.data && Astro.url.pathname === node.data.data.permalink;
+const isActive = decodeURI(Astro.url.pathname).startsWith(node.permalink);
 
 const isFolder = node.children && node.children.length;
 ---
@@ -17,7 +17,7 @@ const isFolder = node.children && node.children.length;
   class:list={[
     "w-full rounded-lg py-1 px-2 font-menu text-menu-foreground dark:text-menu-foreground-dark",
     !isFolder && 'hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark',
-    isActive && "bg-menu-active-background dark:bg-menu-active-background-dark",
+    !isFolder && isActive && "bg-menu-active-background dark:bg-menu-active-background-dark",
   ]}
 >
   {
@@ -33,12 +33,16 @@ const isFolder = node.children && node.children.length;
   }
   {
     isFolder ? (
-      <p class="capitalize mb-0.5">{node.name}</p>
-      <ul class="flex flex-col gap-0.5">
-        {node.children?.map((c) => (
-          <Astro.self node={c} />
-        ))}
-      </ul>
+      <details open={isActive}>
+        <summary class="capitalize mb-0.5">
+          {node.name}
+        </summary>
+        <ul class="flex flex-col gap-0.5">
+          {node.children?.map((c) => (
+            <Astro.self node={c} />
+          ))}
+        </ul>
+      </details>
     ) : null
   }
 </li>
