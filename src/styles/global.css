@@ -103,6 +103,9 @@
   --color-article-background: var(--color-gray-50);
   --color-article-title-foreground: var(--color-primary);
   --color-sidebar-background: var(--color-gray-50);
+  --color-tab-background: var(--color-gray-400);
+  --color-tab-active-background: transparent;
+  --color-tab-active-border: var(--color-text);
   --color-menu-active-background: var(--color-gray-300);
   --color-menu-foreground: var(--color-text);
   --color-badge-background: var(--color-gray-50);
@@ -129,6 +132,9 @@
   --color-article-background-dark: var(--color-obsidian-50);
   --color-article-title-foreground-dark: var(--color-primary);
   --color-sidebar-background-dark: var(--color-obsidian-50);
+  --color-tab-background-dark: var(--color-obsidian-400);
+  --color-tab-active-background-dark: transparent;
+  --color-tab-active-border-dark: var(--color-text-dark);
   --color-menu-active-background-dark: var(--color-obsidian-300);
   --color-menu-foreground-dark: var(--color-text-dark);
   --color-badge-background-dark: var(--color-obsidian-50);
