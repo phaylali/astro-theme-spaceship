@@ -15,7 +15,7 @@ const rightArrowClass =
   "right-[-11px] lg:right-[-22px] hover:right-0 peer-checked:right-[75vw] hover:peer-checked:right-[75vw] lg:peer-checked:right-[15vw] lg:hover:peer-checked:right-[15vw]";
 ---
 
-<div class="flex sticky top-3 lg:top-6 z-20">
+<div class="flex h-[calc(100vh_-_80px)] lg:h-[calc(100vh_-_50px)] sticky top-3 lg:top-6 z-20">
   <input
     type="checkbox"
     id={`${position}-drawer-toggle`}
@@ -54,7 +54,7 @@ const rightArrowClass =
     class:list={[
       "fixed z-20 transition-all duration-500 transform peer-checked:translate-x-0 peer-checked:absolute lg:peer-checked:sticky",
       position === "left" ? leftSidebarClass : rightSidebarClass,
-      "rounded-xl py-8 px-2 h-[calc(100vh_-_50px)] w-[80vw] lg:w-[15vw] bg-sidebar-background dark:bg-sidebar-background-dark shadow-lg",
+      "rounded-xl py-8 px-2 h-full w-[80vw] lg:w-[15vw] bg-sidebar-background dark:bg-sidebar-background-dark shadow-lg",
     ]}
   >
     <slot />
