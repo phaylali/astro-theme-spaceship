@@ -71,9 +71,32 @@
   --color-purple-400: hsl(257, 88.88%, 70.95%);
   --color-purple-500: hsl(258, 88%, 66%);
 
+  /** Accent Colors **/
   --color-primary: var(--color-purple-500);
   --color-text: rgb(0, 0, 0);
   --color-text-dark: rgb(255, 255, 255);
+
+  --color-success-foreground: var(--color-green-500);
+  --color-success-background: var(--color-green-200);
+  --color-success-border: var(--color-green-400);
+  --color-danger-foreground: var(--color-red-500);
+  --color-danger-background: var(--color-red-200);
+  --color-danger-border: var(--color-red-400);
+  --color-warning-foreground: var(--color-yellow-500);
+  --color-warning-background: var(--color-yellow-200);
+  --color-warning-border: var(--color-yellow-400);
+  --color-hint-foreground: var(--color-teal-500);
+  --color-hint-background: var(--color-teal-200);
+  --color-hint-border: var(--color-teal-400);
+  --color-info-foreground: var(--color-blue-500);
+  --color-info-background: var(--color-blue-200);
+  --color-info-border: var(--color-blue-400);
+  --color-example-foreground: var(--color-purple-500);
+  --color-example-background: var(--color-purple-200);
+  --color-example-border: var(--color-purple-400);
+  --color-quote-foreground: var(--color-slate-500);
+  --color-quote-background: var(--color-slate-200);
+  --color-quote-border: var(--color-slate-400);
   
   /** Components **/
   --color-background: var(--color-gray-200);
@@ -134,20 +157,6 @@
   --font-code: "Fira Code Variable", "ui-monospace";
 }
 
-.astro-code code {
-  background: transparent !important;
-}
-
-@media (prefers-color-scheme: dark) {
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
-}
-
 @utility bg-texture {
   opacity: .12;
   mix-blend-mode: multiply;
@@ -168,4 +177,93 @@
 
 @utility bg-texture-dark {
   background-image: url(../assets/texture-dark.png);
+}
+
+.astro-code code {
+  background: transparent !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+blockquote[data-callout] {
+  border: none;
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+}
+
+blockquote[data-callout="abstract"],
+blockquote[data-callout="summary"],
+blockquote[data-callout="tldr"],
+blockquote[data-callout="tip"],
+blockquote[data-callout="hint"],
+blockquote[data-callout="important"] {
+  color: var(--color-hint-foreground);
+  border-color: var(--color-hint-border);
+  background-color: var(--color-hint-background);
+}
+
+blockquote[data-callout="info"],
+blockquote[data-callout="note"],
+blockquote[data-callout="todo"] {
+  color: var(--color-info-foreground);
+  border-color: var(--color-info-border);
+  background-color: var(--color-info-background);
+}
+
+blockquote[data-callout="success"],
+blockquote[data-callout="check"],
+blockquote[data-callout="done"] {
+  color: var(--color-success-foreground);
+  border-color: var(--color-success-border);
+  background-color: var(--color-success-background);
+}
+
+blockquote[data-callout="question"],
+blockquote[data-callout="help"],
+blockquote[data-callout="faq"],
+blockquote[data-callout="warning"],
+blockquote[data-callout="caution"],
+blockquote[data-callout="attention"] {
+  color: var(--color-warning-foreground);
+  border-color: var(--color-warning-border);
+  background-color: var(--color-warning-background);
+}
+
+blockquote[data-callout="failure"],
+blockquote[data-callout="fail"],
+blockquote[data-callout="missing"],
+blockquote[data-callout="danger"],
+blockquote[data-callout="error"],
+blockquote[data-callout="bug"] {
+  color: var(--color-danger-foreground);
+  border-color: var(--color-danger-border);
+  background-color: var(--color-danger-background);
+}
+
+blockquote[data-callout="example"] {
+  color: var(--color-example-foreground);
+  border-color: var(--color-example-border);
+  background-color: var(--color-example-background);
+}
+
+blockquote[data-callout="quote"],
+blockquote[data-callout="cite"] {
+  color: var(--color-quote-foreground);
+  border-color: var(--color-quote-border);
+  background-color: var(--color-quote-background);
 }

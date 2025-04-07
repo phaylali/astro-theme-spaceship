@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import remarkObsidianCallout from 'remark-obsidian-callout';
 
 import websiteConfig from './website.config.mjs';
 
@@ -14,6 +15,10 @@ export default defineConfig({
     locales: [websiteConfig.defaultLanguage],
   },
   markdown: {
+    remarkPlugins: [
+      // @ts-ignore:next-line
+      remarkObsidianCallout,
+    ],
     shikiConfig: {
       themes: {
         light: 'github-light',
