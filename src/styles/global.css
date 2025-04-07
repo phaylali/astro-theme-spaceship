@@ -157,6 +157,8 @@
   --font-code: "Fira Code Variable", "ui-monospace";
 }
 
+@custom-variant marker (&::marker, & *::marker, &::-webkit-details-marker, & *::-webkit-details-marker);
+
 @utility bg-texture {
   opacity: .12;
   mix-blend-mode: multiply;
