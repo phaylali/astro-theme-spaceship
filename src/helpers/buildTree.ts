@@ -2,6 +2,24 @@ import type { CollectionEntry } from "astro:content";
 
 import type { Node } from '../types';
 
+// recursively sort the tree based on: data.order (numeric desc) or node.name (alphabetical asc)
+const sortFn = (a: Node<CollectionEntry<'documents'>>, b: Node<CollectionEntry<'documents'>>) => {
+  if (a.data?.data.order && !b.data?.data.order) {
+    return -1;
+  } else if (!a.data?.data.order && b.data?.data.order) {
+    return 1;
+  } else if (a.data?.data.order && b.data?.data.order) {
+    return  a.data.data.order - b.data.data.order;
+  } else {
+    return a.name.localeCompare(b.name);
+  }
+}
+
+function sortTree(node: Node<CollectionEntry<'documents'>>) {
+  node.children?.sort(sortFn);
+  node.children?.forEach(child => sortTree(child));
+}
+
 export function buildTree(data: CollectionEntry<'documents'>[]): Node<CollectionEntry<'documents'>>[] {
   const root: Node<CollectionEntry<'documents'>>[] = [];
 
@@ -35,6 +53,9 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
       currentLevel = existingNode.children!;
     }
   }
+
+  root.sort(sortFn);
+  root.forEach(node => sortTree(node));
 
   return root
 }

@@ -17,6 +17,7 @@ export const collections = {
       image: image().optional(),
       // or
       cover: image().optional(),
+			order: z.number().optional(),
     }),
 	}),
 	[AUTHORS_COLLECTION_NAME]: defineCollection({
