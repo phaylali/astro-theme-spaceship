@@ -91,21 +91,19 @@ const { document, navigation } = Astro.props;
       >
     </label>
 
-    <!-- <div class="basis-full h-0"></div> -->
-
     <div
-      class="hidden peer-checked/tab-one:block p-4 w-full [grid-area:tabcontent]"
+      class="hidden peer-checked/tab-one:block p-4 overflow-hidden w-full [grid-area:tabcontent]"
     >
       <TableOfContents document={document} />
     </div>
     <div
-      class="hidden peer-checked/tab-two:block p-4 w-full [grid-area:tabcontent]"
+      class="hidden peer-checked/tab-two:flex p-4 overflow-hidden w-full [grid-area:tabcontent]"
     >
       <NavigationLinks document={document} />
       <NavigationBackLinks navigation={navigation} />
     </div>
     <div
-      class="hidden peer-checked/tab-three:block p-4 w-full [grid-area:tabcontent]"
+      class="hidden peer-checked/tab-three:flex p-4 overflow-hidden w-full [grid-area:tabcontent]"
     >
     </div>
   </section>
