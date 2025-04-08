@@ -40,6 +40,6 @@ const { Content } = await render(document);
       }
     </div>
   </div>
-  {cover && <Image src={cover} alt="" class="rounded-3xl shadow w-full h-48 lg:h-96 object-cover"  />}
+  {cover && <Image src={cover} alt="" class="rounded-3xl shadow w-full max-h-48 lg:max-h-[30rem] object-cover object-top"  />}
   <Content />
 </article>
