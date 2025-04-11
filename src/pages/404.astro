@@ -11,7 +11,7 @@ import { buildTree } from "../helpers/buildTree";
 import { useI18n } from "../i18n/utils";
 import type { PageContext } from "../types";
 
-const t = useI18n(Astro);
+const { t } = useI18n(Astro);
 
 const page: PageContext = {
   language: website.defaultLanguage,

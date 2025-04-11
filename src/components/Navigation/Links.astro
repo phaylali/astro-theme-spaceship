@@ -12,7 +12,8 @@ const links = document?.data?.links ?? [];
 const images = document?.data?.images ?? [];
 
 const shouldRender = !!((links.length && links.length > 0) || (images.length && images.length > 0));
-const t = useI18n(Astro)
+
+const { t } = useI18n(Astro);
 ---
 
 {

@@ -27,5 +27,7 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export function useI18n(astro: AstroGlobal) {
-  return useTranslations(astro.currentLocale as keyof typeof ui ?? defaultLang)
+  return {
+    t: useTranslations(astro.currentLocale as keyof typeof ui ?? defaultLang),
+  }
 }

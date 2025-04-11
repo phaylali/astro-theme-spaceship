@@ -14,7 +14,7 @@ const text = htmlToText(document?.rendered?.html as string);
 const words = text.split(" ").filter(t => t.length > 0).length.toString();
 const characters = text.length.toString();
 
-const t = useI18n(Astro);
+const { t } = useI18n(Astro);
 ---
 
 {document?.rendered && (

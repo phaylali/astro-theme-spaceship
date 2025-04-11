@@ -10,7 +10,7 @@ const { navigation } = Astro.props
 const { backlinks } = navigation;
 
 const shouldRender = !!(backlinks.length && backlinks.length > 0);
-const t = useI18n(Astro);
+const { t } = useI18n(Astro);
 ---
 
 {

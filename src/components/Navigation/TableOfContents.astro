@@ -18,7 +18,7 @@ const headings = (document?.rendered?.metadata as any)?.headings as Heading[];
 
 const shouldRender = !!(headings?.length && headings.length > 0);
 
-const t = useI18n(Astro);
+const { t } = useI18n(Astro);
 ---
 
 {
