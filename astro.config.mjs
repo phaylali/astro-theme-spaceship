@@ -1,6 +1,7 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 
+import remarkEmbedder from '@remark-embedder/core';
+import remarkEmbedderOembed from '@remark-embedder/transformer-oembed';
 import tailwindcss from '@tailwindcss/vite';
 import remarkObsidianCallout from 'remark-obsidian-callout';
 
@@ -15,10 +16,11 @@ export default defineConfig({
     locales: [websiteConfig.defaultLanguage],
   },
   markdown: {
-    remarkPlugins: [
-      // @ts-ignore:next-line
-      remarkObsidianCallout,
-    ],
+    remarkPlugins: [ remarkObsidianCallout, [remarkEmbedder.default, {
+      transformers: [
+        [remarkEmbedderOembed.default]
+      ],
+    }] ],
     shikiConfig: {
       themes: {
         light: 'github-light',

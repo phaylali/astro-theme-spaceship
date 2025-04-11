@@ -275,3 +275,10 @@ blockquote[data-callout="cite"] {
   border-color: var(--color-quote-border);
   background-color: var(--color-quote-background);
 }
+
+iframe {
+  border-radius: 1.5rem;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
