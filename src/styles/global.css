@@ -126,6 +126,7 @@
   --color-paragraph-foreground: var(--color-text);
   --color-pre-background: var(--color-gray-200);
   --color-strong-foreground: var(--color-text);
+  --color-hr-border: var(--color-gray-300);
 
   /** Components: dark **/
   --color-background-dark: var(--color-obsidian-200);
@@ -155,6 +156,7 @@
   --color-paragraph-foreground-dark: var(--color-text-dark);
   --color-pre-background-dark: var(--color-obsidian-300);
   --color-strong-foreground-dark: var(--color-text-dark);
+  --color-hr-border-dark: var(--color-obsidian-300);
 
   --font-title: "JetBrains Mono Variable", "sans-serif";
   --font-heading: "Space Grotesk Variable",  "sans-serif";
