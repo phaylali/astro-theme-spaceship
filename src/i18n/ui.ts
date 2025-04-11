@@ -2,7 +2,7 @@ import websiteConfig from "../../website.config.mjs";
 
 export const languages = {
   en: 'English',
-  fr: 'Français',
+  es: 'Spanish',
 };
 
 export const defaultLang = websiteConfig.defaultLanguage;
@@ -10,8 +10,12 @@ export const defaultLang = websiteConfig.defaultLanguage;
 export const ui = {
   en: {
     'article.author.name': 'by {name}',
+    'footer.readingTime': 'Tiempo de Lectura: {readingTime}',
     'footer.charactersCount': '{characters} characters',
     'footer.wordsCount': '{words} words',
+    'format.minutes': '{minutes} minutes',
+    'format.seconds': '{seconds} seconds',
+    'format.milliseconds': '{milliseconds} milliseconds',
     'nav.links': 'Links',
     'nav.linkedMentions': 'Linked Mentions',
     'nav.tableOfContents': 'Table of Contents',
@@ -20,8 +24,12 @@ export const ui = {
   },
   es: {
     'article.author.name': 'por {name}',
+    'footer.readingTime': 'Tiempo de Lectura: {readingTime}',
     'footer.charactersCount': '{characters} caracteres',
     'footer.wordsCount': '{words} palabras',
+    'format.minutes': '{minutes} minutos',
+    'format.seconds': '{seconds} segundos',
+    'format.milliseconds': '{milliseconds} milisegundos',
     'nav.links': 'Enalces',
     'nav.linkedMentions': 'Menciones',
     'nav.tableOfContents': 'Tabla de Contenidos',
