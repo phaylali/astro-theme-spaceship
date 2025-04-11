@@ -10,6 +10,19 @@ export type Seo = {
   description?: string;
   canonicalUrl?: string;
   keywords?: string;
+  image?: string;
+  openGraph?: {
+    title?: string;
+    description?: string;
+    image?: string;
+    url?: string;
+    siteName?: string;
+  };
+  twitter?: {
+    title?: string;
+    description?: string;
+    image?: string;
+  };
 };
 
 export type PageContext = {
