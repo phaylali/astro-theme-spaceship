@@ -9,6 +9,7 @@ export const defaultLang = websiteConfig.defaultLanguage;
 
 export const ui = {
   en: {
+    'article.author.name': 'by {name}',
     'footer.charactersCount': '{characters} characters',
     'footer.wordsCount': '{words} words',
     'nav.links': 'Links',
@@ -18,6 +19,7 @@ export const ui = {
     '404.description': 'The document you are looking for does not exist.',
   },
   es: {
+    'article.author.name': 'por {name}',
     'footer.charactersCount': '{characters} caracteres',
     'footer.wordsCount': '{words} palabras',
     'nav.links': 'Enalces',
