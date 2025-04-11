@@ -16,6 +16,7 @@ export const collections = {
 		schema: ({ image }) => ObsidianDocumentSchema.extend({
       image: image().optional(),
       // or
+			subtitle: z.string().optional(),
       cover: image().optional(),
 			order: z.number().optional(),
     }),
