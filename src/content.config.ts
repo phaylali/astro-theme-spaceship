@@ -25,6 +25,7 @@ export const collections = {
 		schema:  ({ image }) => z.object({
 			name: z.string(),
 			avatar: image().optional(),
+			title: z.string().optional(),
 			description: z.string().optional(),
 		})
 	}),

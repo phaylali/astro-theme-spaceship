@@ -28,6 +28,7 @@ const { Content } = await render(document);
     <p class="!m-0 !mb-8 text-2xl lg:text-3xl xl:text-4xl !font-heading text-balance">{description}</p>
     <div class="flex flex-col lg:items-end gap-2 w-full font-heading">
       {author && <span>by {author.data.name}</span>}
+      {author?.data.title && <span>{author.data.title}</span>}
       {updated && <span>{updated.toLocaleDateString('es-ES')}</span>}
       {
         tags.tags.length > 0 && (
