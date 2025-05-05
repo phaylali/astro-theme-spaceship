@@ -21,6 +21,12 @@
 - 🔁 **Links and Backlinks**  
   Display outgoing links and backlinks at the bottom of each note, making your web of notes as interconnected as your vault.
 
+- 🔌 **Plugins**
+  - [Banners/Covers](https://github.com/jparkerweb/pixel-banner)
+  - [Spoilers](https://github.com/jacobtread/obsidian-spoilers)
+  - [Timeline](https://github.com/George-debug/obsidian-timeline)
+  - [Sorting](https://github.com/shu307/obsidian-nav-weight)
+
 ---
 
 ## 🚀 Built With

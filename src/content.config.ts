@@ -18,6 +18,8 @@ export const collections = {
       // or
 			subtitle: z.string().optional(),
       cover: image().optional(),
+			'cover-x': z.number().optional(),
+			'cover-y': z.number().optional(),
 			order: z.number().optional(),
     }),
 	}),

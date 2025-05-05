@@ -19,7 +19,10 @@
     "astro": "^5.7.10",
     "astro-loader-obsidian": "^0.0.12",
     "html-to-text": "^9.0.5",
+    "mdast-util-from-markdown": "^2.0.2",
     "reading-time": "^1.5.0",
+    "rehype-rewrite": "^4.0.2",
+    "remark-code-extra": "^1.0.1",
     "remark-obsidian-callout": "^1.5.1",
     "sharp": "^0.32.5",
     "tailwindcss": "^4.1.3"

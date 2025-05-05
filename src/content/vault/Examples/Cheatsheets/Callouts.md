@@ -1,3 +1,6 @@
+---
+order: 20
+---
 
 > [!note] Note Callout
 > This is a note callout
