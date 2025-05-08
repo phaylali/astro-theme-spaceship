@@ -1,9 +1,7 @@
 import { defineConfig } from 'astro/config';
 
-import remarkEmbedder from '@remark-embedder/core';
-import remarkEmbedderOembed from '@remark-embedder/transformer-oembed';
 import tailwindcss from '@tailwindcss/vite';
-import remarkObsidianCallout from 'remark-obsidian-callout';
+import markdown from "./astro/markdown/config.mjs";
 
 import websiteConfig from './website.config.mjs';
 
@@ -15,19 +13,7 @@ export default defineConfig({
     defaultLocale: websiteConfig.defaultLanguage,
     locales: [websiteConfig.defaultLanguage],
   },
-  markdown: {
-    remarkPlugins: [ remarkObsidianCallout, [remarkEmbedder.default, {
-      transformers: [
-        [remarkEmbedderOembed.default]
-      ],
-    }] ],
-    shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-    },
-  },
+  markdown,
   integrations: [],
   vite: {
     plugins: [tailwindcss()],
