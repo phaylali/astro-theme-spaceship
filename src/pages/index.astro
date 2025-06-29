@@ -1,7 +1,6 @@
 ---
 
-import AstroLogo from '../content/vault/Assets/logos/astro.png';
-import ObsidianLogo from '../content/vault/Assets/logos/obsidian.svg';
+import Logo from '../content/vault/Assets/logos/logo.png';
 
 import website from "../../website.config.mjs";
 
@@ -40,9 +39,7 @@ const tree = buildTree(documents);
       </p>
     </section>
     <section class="flex flex-col lg:flex-row bg-article-background dark:bg-article-background-dark rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
-      <Image src={AstroLogo} alt="" class="w-[50vw] lg:w-[512px]"  />
-      <span class="text-9xl text-paragraph-foreground dark:text-paragraph-foreground-dark">+</span>
-      <Image src={ObsidianLogo} alt="" class="w-[50vw] lg:w-[512px]" />
+      <Image src={Logo} alt="" class="h-[50vh] lg:h-[512px] w-auto"  />
     </section>
   </article>
   <RightSidebar navigation={{...{

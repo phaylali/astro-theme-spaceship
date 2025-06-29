@@ -303,7 +303,7 @@ iframe {
 }
 
 @utility timeline-item__card {
-  @apply bg-white m-1 mb-10 p-4 rounded-lg shadow-md;
+  @apply bg-white dark:bg-obsidian-300 m-1 mb-10 p-4 rounded-lg shadow-md;
 }
 
 @utility timeline-item__card--start {
