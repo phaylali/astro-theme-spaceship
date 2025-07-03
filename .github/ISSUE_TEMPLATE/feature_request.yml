@@ -1,5 +1,5 @@
 name: Feature request
-about: Suggest an idea for this project
+description: Suggest an idea for this project
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
@@ -13,7 +13,7 @@ body:
       label: What's the Problem you need to solve?
       description: Is your feature request related to a problem? Please describe.
       placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-      value: ""
+      value: " "
     validations:
       required: true
   - type: textarea
