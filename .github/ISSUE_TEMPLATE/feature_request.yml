@@ -21,7 +21,6 @@ body:
       label: Do you have any solution in mind?
       description: Describe the solution you'd like
       placeholder: A clear and concise description of what you want to happen.
-      value: ""
     validations:
       required: true
   - type: textarea
@@ -30,7 +29,6 @@ body:
       label: Did you consider any alternative?
       description: Describe alternatives you've considered
       placeholder: A clear and concise description of any alternative solutions or features you've considered.
-      value: ""
     validations:
       required: false
   - type: textarea
@@ -39,8 +37,6 @@ body:
       label: Additional context
       description: Additional context
       placeholder: Add any other context or screenshots about the feature request here.
-
-      value: ""
     validations:
       required: false
   - type: checkboxes
