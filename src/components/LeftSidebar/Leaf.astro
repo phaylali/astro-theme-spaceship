@@ -3,44 +3,85 @@ import type { CollectionEntry } from "astro:content";
 import type { Node } from "../../types";
 
 export type Props = {
+  expanded?: boolean;
   node: Node<CollectionEntry<"documents">>;
 };
 
-const { node } = Astro.props;
+const { expanded, node } = Astro.props;
 
-const isActive = decodeURI(Astro.url.pathname).startsWith(node.permalink);
+const isFolder = node.children?.length;
 
-const isFolder = node.children && node.children.length;
+let childIndex: Node<CollectionEntry<"documents">> | undefined;
+
+if (isFolder) {
+  const lastUrlPart = node.permalink.split("/").at(-1);
+
+  childIndex = node.children?.find((c) => {
+    const cLastUrlPart = c.permalink.split("/").at(-1);
+    return cLastUrlPart === lastUrlPart;
+  });
+}
+
+const isAnyChildrenActive = (node: Node<CollectionEntry<"documents">>) => {
+  const isActive = decodeURI(Astro.url.pathname).startsWith(node.permalink);
+
+  if (isActive) {
+    return isActive;
+  }
+
+  if (node.children) {
+    return node.children.some(isAnyChildrenActive);
+  }
+};
+
+const isActive = isAnyChildrenActive(node);
+
+const isIndexActive =
+  childIndex && decodeURI(Astro.url.pathname).startsWith(childIndex.permalink);
 ---
 
 <li
   class:list={[
-    "w-full rounded-lg font-menu text-menu-foreground dark:text-menu-foreground-dark",
-    !isFolder && 'py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark',
-    !isFolder && isActive && "bg-menu-active-background dark:bg-menu-active-background-dark",
+    "tree-leaf",
+    !isFolder && "tree-leaf-folder",
+    !isFolder && isActive && "tree-leaf-active",
   ]}
 >
   {
-    !isFolder && node.data ? (
-      <a
-        href={node.permalink}
-        title={node.data.data.title}
-        class="truncate block"
-      >
-        {node.data.data.title}
+    !isFolder ? (
+      <a href={node.permalink} title={node.name} class="truncate block">
+        {node.name}
       </a>
     ) : null
   }
   {
     isFolder ? (
-      <details class="marker:content-none" open={isActive}>
-        <summary class="capitalize mb-0.5 rounded-lg py-1 px-2 cursor-pointer hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
-          {node.name}
+      <details class="marker:content-none" open={expanded ?? isActive}>
+        <summary
+          class:list={[
+            "tree-leaf-folder-summary",
+            isIndexActive &&
+              "tree-leaf-folder-summary-active",
+          ]}
+        >
+          {childIndex ? (
+            <a
+              href={childIndex.permalink}
+              title={childIndex.name}
+              class="truncate block"
+            >
+              {childIndex.name}
+            </a>
+          ) : (
+            <span>{node.name}</span>
+          )}
         </summary>
         <ul class="flex flex-col gap-0.5 ms-2">
-          {node.children?.map((c) => (
-            <Astro.self node={c} />
-          ))}
+          {node.children
+            ?.filter((c) => c.permalink !== childIndex?.permalink)
+            .map((c) => (
+              <Astro.self expanded={expanded} node={c} />
+            ))}
         </ul>
       </details>
     ) : null

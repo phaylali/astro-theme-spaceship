@@ -24,16 +24,18 @@ const { Content } = await render(document);
 ---
 
 <article class="article">
-  <Title document={document} />
-  <Subtitle document={document} />
-  <div class="flex flex-col lg:flex-row justify-end">
-    <Description document={document} />
-    <div class="flex flex-col lg:items-end gap-2 w-full">
-      <Author author={author} />
-      <ArticleDate document={document} />
-      <Tags tags={tags} />
+  <section class="article-content">
+    <Title document={document} />
+    <Subtitle document={document} />
+    <div class="flex flex-col lg:flex-row justify-end">
+      <Description document={document} />
+      <div class="flex flex-col lg:items-end gap-2 w-full">
+        <Author author={author} />
+        <ArticleDate document={document} />
+        <Tags tags={tags} />
+      </div>
     </div>
-  </div>
-  <CoverImage {...data} />
-  <Content />
+    <CoverImage {...data} />
+    <Content />
+  </section>
 </article>

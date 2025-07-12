@@ -55,7 +55,7 @@
 }
 
 @utility article {
-  @apply article-background article-blockquote article-code article-heading article-image article-link article-list article-paragraph article-prose article-separator article-scroll article-strong article-table;
+  @apply grow-1 max-w-full article-background article-blockquote article-code article-heading article-image article-link article-list article-paragraph article-prose article-separator article-scroll article-strong article-table;
 }
 
 @utility article-subtitle {

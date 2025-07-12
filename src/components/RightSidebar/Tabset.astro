@@ -35,10 +35,12 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
 <section
   id={id}
   class:list={[
+    "tabset",
     "grid",
     template
   ]}
 >
+  <div class="tabset-bg"></div>
   {showToC && (
     <input
       id={`${id}-tab-one`}
@@ -49,7 +51,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     />
     <label
       for={`${id}-tab-one`}
-      class="[grid-area:tab1] bg-tab-background dark:bg-tab-background-dark text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-one:border peer-checked/tab-one:border-b-0 peer-checked/tab-one:bg-tab-active-background dark:peer-checked/tab-one:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex justify-center truncate"
+      class="tabset-tab tabset-tab-one [grid-area:tab1] "
       title="Outline"
       >
         <OutlineIcon />
@@ -65,7 +67,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     />
     <label
       for={`${id}-tab-two`}
-      class="[grid-area:tab2] bg-tab-background dark:bg-tab-background-dark text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-two:border peer-checked/tab-two:border-b-0 peer-checked/tab-two:bg-tab-active-background dark:peer-checked/tab-two:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex justify-center"
+      class="tabset-tab tabset-tab-two [grid-area:tab2]"
       title="Links"
     >
       <LinkIcon />
@@ -82,7 +84,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     />
     <label
       for={`${id}-tab-three`}
-      class="[grid-area:tab3] bg-white/0 text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-three:border peer-checked/tab-three:border-b-0 peer-checked/tab-three:bg-tab-active-background dark:peer-checked/tab-three:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex justify-center"
+      class="tabset-tab tabset-tab-three [grid-area:tab3]"
       title="Graph"
     >
       <GraphIcon />
@@ -92,7 +94,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
   
   {showToC && (
     <div
-      class="hidden peer-checked/tab-one:block p-4 overflow-hidden w-full [grid-area:tabcontent]"
+      class="hidden peer-checked/tab-one:block tabset-content [grid-area:tabcontent]"
     >
       <TableOfContents document={document} />
     </div>
@@ -100,7 +102,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
 
   {showLinks && (
     <div
-      class="hidden peer-checked/tab-two:flex p-4 overflow-hidden w-full [grid-area:tabcontent]"
+      class="hidden peer-checked/tab-two:flex tabset-content [grid-area:tabcontent]"
     >
       <Links document={document} navigation={navigation} />
     </div>
@@ -108,7 +110,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
   
   {showRelations && (
     <div
-      class="hidden peer-checked/tab-three:flex p-4 overflow-hidden w-full [grid-area:tabcontent]"
+      class="hidden peer-checked/tab-three:flex tabset-content [grid-area:tabcontent]"
     >
     </div>
   )}

@@ -10,10 +10,10 @@ export type Props = {
 const { id, website } = Astro.props;
 ---
 
-<header id={id} class="h-11 px-2">
+<header id={id} class="header">
   <a
     href={import.meta.env.BASE_URL}
-    class="font-title text-menu-foreground dark:text-menu-foreground-dark flex gap-2"
+    class="header-link"
   >
     <Logo />
     {website.title}

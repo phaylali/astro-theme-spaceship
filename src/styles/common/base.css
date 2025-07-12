@@ -5,7 +5,13 @@
 @import './components/article';
 @import './components/body';
 @import './components/footer';
+@import './components/header';
+@import './components/links';
+@import './components/main';
+@import './components/navigation-tree';
 @import './components/sidebar';
+@import './components/table-of-contents';
+@import './components/tabset';
 
 @import './markdown/callouts';
 @import './markdown/code';

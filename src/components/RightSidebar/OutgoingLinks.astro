@@ -20,11 +20,11 @@ const { t } = useI18n(Astro);
 
 {
   shouldRender && (
-    <nav class="mb-4 text-menu-foreground dark:text-menu-foreground-dark font-menu">
-      <h2 class="text-xl mb-2">{t('nav.links')}</h2>
+    <nav class="links">
+      <h2 class="links-title">{t('nav.links')}</h2>
       <ul class="flex flex-col gap-0.5">
         {links.map((link) => (
-          <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
+          <li class="link">
             <a class="flex gap-2" href={link.href} title={link.title}>
               <LinkIcon />
               <span class="truncate">{link.title}</span>
@@ -32,7 +32,7 @@ const { t } = useI18n(Astro);
           </li>
         ))}
         {images.map((image) => (
-          <li class="w-full rounded-lg py-1 px-2 hover:bg-menu-active-background dark:hover:bg-menu-active-background-dark">
+          <li class="link">
             <a class="flex gap-2" href={image.href} title={image.title}>
               <ImageIcon />
               <span class="truncate">{image.title}</span>
