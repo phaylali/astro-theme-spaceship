@@ -130,3 +130,11 @@
 @utility texture {
   @apply bg-texture bg-texture-light dark:bg-texture-dark;
 }
+
+@utility article-image {
+  @apply prose-img:rounded-3xl;
+}
+
+@utility article-cover {
+  @apply rounded-3xl shadow;
+}

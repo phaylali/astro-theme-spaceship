@@ -19,7 +19,7 @@
 }
 
 @utility article-image {
-  @apply prose-img:rounded-3xl prose-img:mx-auto;
+  @apply prose-img:mx-auto;
 }
 
 @utility article-link {
@@ -79,5 +79,5 @@
 }
 
 @utility article-cover {
-  @apply rounded-3xl shadow w-full max-h-48 lg:max-h-[30rem] object-cover;
+  @apply w-full max-h-48 lg:max-h-[30rem] object-cover;
 }
