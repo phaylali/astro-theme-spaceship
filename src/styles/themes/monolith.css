@@ -1,3 +1,7 @@
+@import "tailwindcss";
+@import '../common/base';
+
+
 @theme {
   --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica", "Arial", "Segoe UI", "Inter", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Mono", "Roboto Mono", "DejaVu Sans Mono", "Liberation Mono", Menlo, Monaco, "Consolas", "Source Code Pro", monospace;
@@ -30,7 +34,7 @@
   --color-text-faint: var(--color-gray-700);
 
   --color-article-title-foreground: var(--color-text-normal);
-  --color-article-title-foreground-dark: var(--color-text-normal);
+  --color-article-title-foreground-dark: var(--color-text-dark);
 
   --color-footer-background: var(--color-background);
   --color-footer-background-dark: var(--color-background-dark);
@@ -79,11 +83,11 @@ body {
 }
 
 @utility sidebar-content {
-  @apply p-0 border border-gray-400;
+  @apply p-0 border border-gray-400 dark:border-obsidian-400;
 }
 
 @utility header {
-  @apply p-2 border-b border-b-gray-400 bg-article-background dark:bg-article-background-dark;
+  @apply p-2 border-b border-b-gray-400 dark:border-obsidian-400 bg-article-background dark:bg-obsidian-400;
 }
 
 @utility navigation-tree {
@@ -91,7 +95,7 @@ body {
 }
 
 @utility tabset-bg {
-  @apply block! z-0 absolute inset-0 h-10 bg-article-background dark:bg-article-background-dark;
+  @apply block! z-0 absolute inset-0 h-[42px] bg-article-background dark:bg-obsidian-400;
 }
 
 
@@ -104,7 +108,7 @@ body {
 }
 
 @utility tabset-content {
-  @apply p-2 border-t border-gray-400;
+  @apply p-2 border-t border-gray-400 dark:border-obsidian-400;
 }
 
 @utility tree-leaf {
