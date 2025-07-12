@@ -1,4 +1,5 @@
 ---
+import type { RenderedContent } from "astro:content";
 import { useI18n } from "../../i18n/utils";
 import type { DocumentContext } from "../../types";
 
@@ -8,13 +9,17 @@ export type Heading = {
   text: string;
 };
 
+export type ExtRenderedContentMetadata = NonNullable<RenderedContent['metadata']> & {
+  headings?: Heading[];
+};
+
 export type Props = {
   document?: DocumentContext;
 }
 
 const { document } = Astro.props;
 
-const headings = (document?.rendered?.metadata as any)?.headings as Heading[];
+const headings = (document?.rendered?.metadata as ExtRenderedContentMetadata)?.headings as Heading[];
 
 const shouldRender = !!(headings?.length && headings.length > 0);
 

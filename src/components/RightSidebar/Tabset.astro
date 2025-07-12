@@ -1,12 +1,12 @@
 ---
-import type { DocumentContext, NavigationContext } from "../types";
-import NavigationBackLinks from "./Navigation/BackLinks.astro";
-import NavigationLinks from "./Navigation/Links.astro";
-import TableOfContents from "./Navigation/TableOfContents.astro";
+import type { DocumentContext, NavigationContext } from "../../types";
 
-import GraphIcon from './Icons/Graph.astro';
-import OutlineIcon from './Icons/Outline.astro';
-import LinkIcon from './Icons/Link.astro';
+import GraphIcon from '../Icons/Graph.astro';
+import OutlineIcon from '../Icons/Outline.astro';
+import LinkIcon from '../Icons/Link.astro';
+
+import Links from "../RightSidebar/Links.astro";
+import TableOfContents from "../RightSidebar/TableOfContents.astro";
 
 export type Props = {
   id?: string;
@@ -49,7 +49,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     />
     <label
       for={`${id}-tab-one`}
-      class="[grid-area:tab1] bg-tab-background dark:bg-tab-background-dark text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-one:border peer-checked/tab-one:border-b-0 peer-checked/tab-one:bg-tab-active-background dark:peer-checked/tab-one:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex truncate"
+      class="[grid-area:tab1] bg-tab-background dark:bg-tab-background-dark text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-one:border peer-checked/tab-one:border-b-0 peer-checked/tab-one:bg-tab-active-background dark:peer-checked/tab-one:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex justify-center truncate"
       title="Outline"
       >
         <OutlineIcon />
@@ -65,7 +65,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     />
     <label
       for={`${id}-tab-two`}
-      class="[grid-area:tab2] bg-tab-background dark:bg-tab-background-dark text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-two:border peer-checked/tab-two:border-b-0 peer-checked/tab-two:bg-tab-active-background dark:peer-checked/tab-two:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex"
+      class="[grid-area:tab2] bg-tab-background dark:bg-tab-background-dark text-text dark:text-text-dark border-tab-active-border dark:border-tab-active-border-dark border-b hover:border-b-0 hover:border hover:bg-tab-active-background dark:hover:bg-tab-active-background-dark peer-checked/tab-two:border peer-checked/tab-two:border-b-0 peer-checked/tab-two:bg-tab-active-background dark:peer-checked/tab-two:bg-tab-active-background-dark cursor-pointer p-2 rounded-t-lg flex justify-center"
       title="Links"
     >
       <LinkIcon />
@@ -102,8 +102,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     <div
       class="hidden peer-checked/tab-two:flex p-4 overflow-hidden w-full [grid-area:tabcontent]"
     >
-      <NavigationLinks document={document} />
-      <NavigationBackLinks navigation={navigation} />
+      <Links document={document} navigation={navigation} />
     </div>
   )}
   
