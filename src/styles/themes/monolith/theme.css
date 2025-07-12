@@ -1,0 +1,32 @@
+
+
+@import './fonts';
+@import './background';
+
+@theme {
+  --font-title: "JetBrains Mono Variable", "sans-serif";
+  --font-heading: "Space Grotesk Variable",  "sans-serif";
+  --font-paragraph: "IBM Plex Sans Variable";
+  --font-menu: "JetBrains Mono Variable",  "sans-serif";
+  --font-code: "Fira Code Variable", "ui-monospace";
+}
+
+@utility article {
+  @apply p-4 lg:p-8 rounded-xl grow-1 max-w-full shadow-lg mb-6;
+}
+
+@utility article-title {
+  @apply text-center;
+}
+
+@utility article-subtitle {
+  @apply !mt-2 text-center opacity-60 italic;
+}
+
+@utility article-description {
+  @apply !m-0 !mb-8 text-2xl lg:text-3xl xl:text-4xl text-balance;
+}
+
+@utility article-tag {
+  @apply rounded-xl px-2 py-2;
+}

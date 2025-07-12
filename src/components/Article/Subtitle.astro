@@ -1,0 +1,11 @@
+---
+import type { DocumentContext } from "../../types";
+
+export type Props = {
+  document: DocumentContext;
+};
+
+const { subtitle } = Astro.props.document.data;
+---
+
+{subtitle && <h2 class="article-subtitle">{subtitle}</h2>}

@@ -1,0 +1,11 @@
+---
+import type { DocumentContext } from "../../types";
+
+export type Props = {
+  document: DocumentContext;
+};
+
+const { description } = Astro.props.document.data;
+---
+
+<p class="article-description" set:html={description} />

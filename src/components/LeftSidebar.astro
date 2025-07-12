@@ -12,7 +12,12 @@ export type Props = {
 const { navigation, website } = Astro.props;
 ---
 
-<Sidebar open>
-  <Header website={website} />
+<Sidebar class="hidden lg:flex" id="left-sidebar-desktop" open>
+  <Header id="header-desktop" website={website} />
+  <NavigationTree navigation={navigation} />
+</Sidebar>
+
+<Sidebar class="flex lg:hidden" id="left-sidebar-touch">
+  <Header id="header-touch" website={website} />
   <NavigationTree navigation={navigation} />
 </Sidebar>

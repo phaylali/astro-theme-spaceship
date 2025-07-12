@@ -21,7 +21,7 @@ import { buildPage } from "../helpers/buildPage";
 import { buildTags } from "../helpers/buildTags";
 import { buildTree } from "../helpers/buildTree";
 
-import Article from "../components/Article.astro";
+import Entry from "../components/Article/Entry.astro";
 import Layout from "../components/Layout.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import RightSidebar from "../components/RightSidebar.astro";
@@ -69,6 +69,6 @@ const { author, document, navigation, page, tags } = Astro.props;
 
 <Layout page={page} document={document}>
   <LeftSidebar website={website} navigation={navigation} />
-  <Article author={author} document={document} tags={tags} />
+  <Entry author={author} document={document} tags={tags} />
   <RightSidebar document={document} navigation={navigation} />
 </Layout>
