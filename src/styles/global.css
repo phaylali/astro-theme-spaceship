@@ -1,1 +1,3 @@
-@import './themes/monolith';
+@import "./themes/monolith";
+
+@import "./landing";

@@ -1,16 +1,13 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
-import Logo from '../content/vault/Assets/logos/logo.png';
+import Logo from "../content/vault/Assets/logos/logo.png";
 
 import website from "../../website.config.mjs";
 
 import Layout from "../components/Layout.astro";
 import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
-import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
-import {
-DOCUMENTS_COLLECTION_NAME,
-} from "../constants";
+import { DOCUMENTS_COLLECTION_NAME } from "../constants";
 
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
@@ -21,30 +18,50 @@ const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
 const tree = buildTree(documents);
 ---
 
-<Layout page={{
-  title: website.title,
-  language: website.defaultLanguage,
-  seo: {
-    description: website.description,
-  }
-}}>
-  <LeftSidebar website={website} navigation={{...{
-    tree,
-    backlinks: [],
-  }}} />
-  <article class="flex flex-col gap-24 rounded-4xl items-center grow-1 justify-center p-3 max-w-full">
-    <section class="flex flex-col gap-6 items-center">
-      <h1 class="text-6xl lg:text-8xl font-title text-article-title-foreground dark:text-article-title-foreground-dark">{website.title}</h1>
-      <p class="text-3xl font-heading text-paragraph-foreground dark:text-paragraph-foreground-dark">
-        {website.description}
-      </p>
-    </section>
-    <section class="flex flex-col lg:flex-row bg-article-background dark:bg-article-background-dark rounded-4xl items-center justify-center py-8 min-w-[80%] shadow-lg">
-      <Image src={Logo} alt="" class="h-[50vh] w-auto"  />
-    </section>
+<Layout
+  page={{
+    title: website.title,
+    language: website.defaultLanguage,
+    seo: {
+      description: website.description,
+    },
+  }}
+>
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <LeftSidebar
+    website={website}
+    navigation={{
+      ...{
+        tree,
+        backlinks: [],
+      },
+    }}
+  />
+  <article
+    class="group perspective-normal mt-20 z-10 flex flex-col gap-24 rounded-4xl items-center grow-1 justify-center p-3 max-w-full"
+  >
+    <a href={`/${website.base}/welcome`} class="">
+      <section class="flex flex-col gap-6 items-center transition-all group-hover:-rotate-x-25">
+        <h1
+          class="text-6xl lg:text-8xl font-title bg-gradient-to-r from-obsidian-500 via-purple-400 to-pink-500 inline-block text-transparent bg-clip-text"
+        >
+          {website.title}
+        </h1>
+        <p class="text-3xl font-heading text-white">
+          {website.description}
+        </p>
+      </section>
+      <section
+        class="perspective-normal flex flex-col lg:flex-row rounded-4xl items-center justify-center py-8 min-w-[80%]"
+      >
+        <Image
+          src={Logo}
+          alt=""
+          class="h-[50vh] w-auto transition-all group-hover:rotate-x-25"
+        />
+      </section>
+    </a>
   </article>
-  <RightSidebar navigation={{...{
-    tree,
-    backlinks: [],
-  }}} />
 </Layout>

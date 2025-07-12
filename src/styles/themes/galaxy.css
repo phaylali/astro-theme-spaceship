@@ -119,11 +119,11 @@
 }
 
 @utility bg-texture-light {
-  background-image: url(../assets/texture-light.png);
+  background-image: url(../../assets/texture-light.png);
 }
 
 @utility bg-texture-dark {
-  background-image: url(../assets/texture-dark.png);
+  background-image: url(../../assets/texture-dark.png);
 }
 
 

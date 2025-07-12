@@ -5,7 +5,6 @@ import { getCollection } from "astro:content";
 import website from "../../website.config.mjs";
 import Layout from "../components/Layout.astro";
 import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
-import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
 import {
 DOCUMENTS_COLLECTION_NAME,
 } from "../constants";
@@ -49,12 +48,4 @@ const entry = Astro.url.searchParams.get("entry");
       {t('404.description')}
     </p>
   </article>
-  <RightSidebar
-    navigation={{
-      ...{
-        tree,
-        backlinks: [],
-      },
-    }}
-  />
 </Layout>
