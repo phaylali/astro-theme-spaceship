@@ -8,14 +8,15 @@ import NavigationTree from "./Tree.astro";
 
 
 export type Props = {
+  open?: boolean;
   navigation: NavigationContext;
   website: WebsiteContext;
 }
 
-const { navigation, website } = Astro.props;
+const { navigation, open = true, website } = Astro.props;
 ---
 
-<Sidebar class="hidden lg:flex" id="left-sidebar-desktop" open>
+<Sidebar class="hidden lg:flex" id="left-sidebar-desktop" open={open}>
   <Header id="header-desktop" website={website} />
   <NavigationTree navigation={navigation} />
 </Sidebar>

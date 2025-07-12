@@ -15,9 +15,9 @@ export type Props = {
 ---
 
 <Sidebar class="hidden lg:flex" open position="right" id="right-sidebar-desktop">
-  <Tabset id="right-sidebar-desktop-tabset" {...Astro.props} />
+  <Tabset id="right-sidebar-desktop-tabset" {...Astro.props} showRelations={false} />
 </Sidebar>
 
 <Sidebar class="flex lg:hidden" position="right" id="right-sidebar-touch">
-  <Tabset  id="right-sidebar-touch-tabset" {...Astro.props} />
+  <Tabset  id="right-sidebar-touch-tabset" {...Astro.props} showRelations={false} />
 </Sidebar>
