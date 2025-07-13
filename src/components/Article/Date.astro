@@ -9,6 +9,6 @@ const { updated } = Astro.props.document.data;
 ---
 {
   updated && (
-    <span class="article-date">{updated.toLocaleDateString("es-ES")}</span>
+    <span data-pagefind-weight="0" class="article-date">{updated.toLocaleDateString("es-ES")}</span>
   )
 }

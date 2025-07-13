@@ -1,6 +1,4 @@
-@import "tailwindcss";
 @import '../common/base';
-
 
 @theme {
   --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica", "Arial", "Segoe UI", "Inter", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -46,6 +44,10 @@
   --color-tab-background-dark: var(--color-article-background-dark);
   --color-tab-active-background: var(--color-background);
   --color-tab-active-background-dark: var(--color-background-dark);
+
+  --left-sidebar-content-height: calc(100vh - 50px);
+
+  --animate-bg-position: animate-bg-position 15s linear infinite;
 }
 
 body {
@@ -133,4 +135,28 @@ body {
 
 @utility footer {
   @apply text-ui-sm;
+}
+
+@utility pagefind-ui__search-input {
+  @apply text-ui-sm!;
+}
+
+@utility pagefind-ui__search-clear {
+  @apply text-ui-sm!;
+}
+
+@utility pagefind-ui-sidebar-search {
+  @apply p-2;
+}
+
+@utility pagefind-ui__message {
+  @apply p-0!;
+}
+
+@utility pagefind-ui__result-link {
+  @apply text-ui-sm!;
+}
+
+@utility pagefind-ui__result-excerpt {
+  @apply text-ui-sm!;
 }

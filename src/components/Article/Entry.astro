@@ -23,7 +23,7 @@ const { data } = document;
 const { Content } = await render(document);
 ---
 
-<article class="article">
+<article class="article" data-pagefind-body>
   <section class="article-content">
     <Title document={document} />
     <Subtitle document={document} />
@@ -36,6 +36,8 @@ const { Content } = await render(document);
       </div>
     </div>
     <CoverImage {...data} />
-    <Content />
+    <div data-pagefind-weight="0.1" class="article-body">
+      <Content />
+    </div>
   </section>
 </article>

@@ -1,3 +1,5 @@
+import pagefind from "astro-pagefind";
+import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
@@ -7,14 +9,20 @@ import websiteConfig from './website.config.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://aitorllj93.github.io',
+  site: websiteConfig.site,
   base: websiteConfig.base,
+  build: {
+    format: 'file',
+  },
   i18n: {
     defaultLocale: websiteConfig.defaultLanguage,
     locales: [websiteConfig.defaultLanguage],
   },
   markdown,
-  integrations: [],
+  integrations: [
+    pagefind(),
+    sitemap(),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

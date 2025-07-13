@@ -12,13 +12,13 @@ const { author } = Astro.props;
 ---
 {
   author && (
-    <span class="article-author">
+    <span data-pagefind-weight="0" class="article-author">
       {t("article.author.name", { name: author.data.name })}
     </span>
   )
 }
 {
   author?.data.title && (
-    <span class="article-author">{author.data.title}</span>
+    <span data-pagefind-weight="0" class="article-author">{author.data.title}</span>
   )
 }
