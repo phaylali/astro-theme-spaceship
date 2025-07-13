@@ -57,9 +57,13 @@
 
 ## 🛠 Setup & Usage
 
-1. Start a new project with `create astro` or just clone this repo.
+1. Start a new project with `create spaceship`, `create astro`, or just clone this repo.
 ```sh
+npm create spaceship@latest
+# or
 npm create astro@latest -- --template aitorllj93/astro-theme-spaceship
+# or
+degit aitorllj93/astro-theme-spaceship
 ```
 2. Drop your Obsidian vault into the `content/` folder.
 3. Customize your config (navigation, theme colors, etc.)
