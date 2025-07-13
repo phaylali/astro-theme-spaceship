@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 export type WebsiteContext = {
   title: string;
-  defaultLanguage: string;
+  defaultLocale: string;
 };
 
 export type Seo = {

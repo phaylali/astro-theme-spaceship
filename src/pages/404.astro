@@ -15,7 +15,7 @@ import type { PageContext } from "../types";
 const { t } = useI18n(Astro);
 
 const page: PageContext = {
-  language: website.defaultLanguage,
+  language: website.defaultLocale,
   title: t('404.title'),
   seo: {
     description: t('404.description'),

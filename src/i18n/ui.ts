@@ -5,7 +5,7 @@ export const languages = {
   es: 'Spanish',
 };
 
-export const defaultLang = websiteConfig.defaultLanguage;
+export const defaultLang = websiteConfig.defaultLocale;
 
 export const ui = {
   en: {

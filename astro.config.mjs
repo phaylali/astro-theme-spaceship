@@ -15,8 +15,8 @@ export default defineConfig({
     format: 'file',
   },
   i18n: {
-    defaultLocale: websiteConfig.defaultLanguage,
-    locales: [websiteConfig.defaultLanguage],
+    defaultLocale: websiteConfig.defaultLocale,
+    locales: [websiteConfig.defaultLocale],
   },
   markdown,
   integrations: [
