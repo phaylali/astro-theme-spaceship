@@ -8,7 +8,7 @@ const shortenText = (text: string, length: number) => {
   return text;
 }
 
-export const buildPage = (doc: DocumentContext, language = websiteConfig.defaultLanguage): PageContext => {
+export const buildPage = (doc: DocumentContext, language = websiteConfig.defaultLocale): PageContext => {
 
   const docDescription = doc.data.description ?? doc.data.subtitle;
 
