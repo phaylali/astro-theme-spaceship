@@ -3,17 +3,12 @@ import "../styles/landing.css";
 
 import Logo from "../content/vault/Assets/logos/logo.png";
 
-import website from "../../website.config.mjs";
+import website from "../../website.config.json";
 
 import KnowledgeGraph from "../components/KnowledgeGraph.astro";
 import Layout from "../components/Layout.astro";
-import { DOCUMENTS_COLLECTION_NAME } from "../constants";
 
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import { buildTree } from "../helpers/buildTree";
-
-const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
 ---
 
 <Layout

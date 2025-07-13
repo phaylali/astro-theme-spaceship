@@ -1,4 +1,4 @@
-import websiteConfig from "../../website.config.mjs";
+import websiteConfig from "../../website.config.json";
 
 export const languages = {
   en: 'English',

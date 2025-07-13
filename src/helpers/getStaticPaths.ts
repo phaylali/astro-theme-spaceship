@@ -19,7 +19,7 @@ import { buildPage } from "../helpers/buildPage";
 import { buildTags } from "../helpers/buildTags";
 import { buildTree } from "../helpers/buildTree";
 
-import website from "../../website.config.mjs";
+import website from "../../website.config.json";
 
 export type Props = {
 	author?: AuthorContext;

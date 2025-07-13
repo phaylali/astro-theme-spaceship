@@ -2,7 +2,7 @@ import { ObsidianDocumentSchema, ObsidianMdLoader } from "astro-loader-obsidian"
 import { glob } from "astro/loaders";
 import { defineCollection, z } from 'astro:content';
 
-import config from '../website.config.mjs';
+import config from '../website.config.json';
 import { AUTHORS_COLLECTION_NAME, DOCUMENTS_COLLECTION_NAME, TAGS_COLLECTION_NAME } from './constants';
 
 

@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import markdown from "./astro/markdown/config.mjs";
 
-import websiteConfig from './website.config.mjs';
+import websiteConfig from './website.config.json';
 
 // https://astro.build/config
 export default defineConfig({
