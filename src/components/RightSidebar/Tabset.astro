@@ -7,6 +7,7 @@ import LinkIcon from '../Icons/Link.astro';
 
 import Links from "../RightSidebar/Links.astro";
 import TableOfContents from "../RightSidebar/TableOfContents.astro";
+import KnowledgeGraph from "../KnowledgeGraph.astro";
 
 export type Props = {
   id?: string;
@@ -112,6 +113,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     <div
       class="hidden peer-checked/tab-three:flex tabset-content [grid-area:tabcontent]"
     >
+    <KnowledgeGraph slug={document?.id}  />
     </div>
   )}
 

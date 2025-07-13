@@ -5,8 +5,8 @@ import Logo from "../content/vault/Assets/logos/logo.png";
 
 import website from "../../website.config.mjs";
 
+import KnowledgeGraph from "../components/KnowledgeGraph.astro";
 import Layout from "../components/Layout.astro";
-import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
 import { DOCUMENTS_COLLECTION_NAME } from "../constants";
 
 import { Image } from "astro:assets";
@@ -14,8 +14,6 @@ import { getCollection } from "astro:content";
 import { buildTree } from "../helpers/buildTree";
 
 const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
-
-const tree = buildTree(documents);
 ---
 
 <Layout
@@ -27,44 +25,35 @@ const tree = buildTree(documents);
     },
   }}
 >
-  <LeftSidebar
-    open={false}
-    website={website}
-    navigation={{
-      ...{
-        tree,
-        backlinks: [],
-      },
-    }}
-  />
-  <a href={`/${website.base}/welcome`} class="w-full h-full">
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="clouds"></div>
-    <article
-      class="group perspective-normal mt-20 z-[-2] flex flex-col gap-24 rounded-4xl items-center grow-1 justify-center p-3 max-w-full"
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="absolute w-full h-full">
+    <KnowledgeGraph />
+  </div>
+  <a href={`/${website.base}/welcome`}>
+    <section
+      class="perspective group absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
     >
-      <section
-        class="flex flex-col gap-6 items-center transition-all group-hover:-rotate-x-25"
+      <Image
+        src={Logo}
+        alt=""
+        class="mx-auto h-[33vh] w-auto transition-all group-hover:rotate-x-25"
+      />
+    </section>
+  </a>
+  <a href={`/${website.base}/welcome`}>
+    <section
+      class="absolute bottom-[20px] md:bottom-[100px] left-[50%] -translate-x-[50%] flex flex-col gap-3 md:gap-6 items-center transition-all group-hover:-rotate-x-25"
+    >
+      <h1
+        class="text-6xl lg:text-8xl font-title bg-gradient-to-r from-obsidian-500 via-purple-400 to-pink-500 inline-block text-transparent bg-clip-text"
       >
-        <h1
-          class="text-6xl lg:text-8xl font-title bg-gradient-to-r from-obsidian-500 via-purple-400 to-pink-500 inline-block text-transparent bg-clip-text"
-        >
-          {website.title}
-        </h1>
-        <p class="text-3xl font-heading text-white">
-          {website.description}
-        </p>
-      </section>
-      <section
-        class="perspective-normal flex flex-col lg:flex-row rounded-4xl items-center justify-center py-8 min-w-[80%]"
-      >
-        <Image
-          src={Logo}
-          alt=""
-          class="h-[50vh] w-auto transition-all group-hover:rotate-x-25"
-        />
-      </section>
-    </article>
-  </a></Layout
->
+        {website.title}
+      </h1>
+      <p class="text-xl lg:text-3xl text-balance text-center font-heading text-white">
+        {website.description}
+      </p>
+    </section>
+  </a>
+</Layout>
