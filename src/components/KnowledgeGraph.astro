@@ -1,4 +1,6 @@
 ---
+import config from '../../website.config.mjs';
+
 export type Props = {
   class?: string;
   slug?: string;
@@ -7,7 +9,7 @@ export type Props = {
 const { slug, class: className = "flex w-full h-full" } = Astro.props;
 ---
 
-<knowledge-graph slug={slug} class={className}></knowledge-graph>
+<knowledge-graph base={config.base} slug={slug} class={className}></knowledge-graph>
 
 <script>
   import type { KnowledgeGraphData, KnowledgeGraphNode } from "../types";
@@ -49,8 +51,11 @@ const { slug, class: className = "flex w-full h-full" } = Astro.props;
     }
 
     async loadData(): Promise<KnowledgeGraphData> {
+      const base = this.getAttribute("base");
       const slug = this.getAttribute("slug");
-      const response = await fetch(`/knowledge-graph/${slug ?? "index"}.json`);
+      const url = base ? `/${base}/knowledge-graph/${slug ?? "index"}.json` : `/knowledge-graph/${slug ?? "index"}.json`;
+
+      const response = await fetch(url);
       return response.json();
     }
 
