@@ -2,9 +2,9 @@
 import { convert as htmlToText } from "html-to-text";
 import calculateReadingTime from "reading-time";
 
-import { useI18n } from "../i18n/utils";
-import type { DocumentContext } from "../types";
-import { formatDuration } from "../helpers/formatDuration";
+import { useI18n } from "@/i18n";
+import type { DocumentContext } from "@/types";
+import { formatDuration } from "@/helpers/formatDuration";
 
 export type Props = {
   document?: DocumentContext;

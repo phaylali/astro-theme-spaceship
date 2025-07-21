@@ -1,5 +1,5 @@
-import websiteConfig from "../../website.config.json";
-import type { DocumentContext, PageContext } from "../types";
+import websiteConfig from "@/config";
+import type { DocumentContext, PageContext } from "@/types";
 
 const shortenText = (text: string, length: number) => {
   if (text.length > length) {

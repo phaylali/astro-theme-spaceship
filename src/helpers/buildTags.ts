@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import type { DocumentContext, TagsContext } from "../types";
+import type { DocumentContext, TagsContext } from "@/types";
 
 export const buildTags = (
   doc: DocumentContext,

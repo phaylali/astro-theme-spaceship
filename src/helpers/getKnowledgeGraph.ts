@@ -1,6 +1,6 @@
 
 import { getCollection } from "astro:content";
-import type { KnowledgeGraphNode, KnowledgeGraphLink } from "../types";
+import type { KnowledgeGraphNode, KnowledgeGraphLink } from "@/types";
 
 export const getKnowledgeGraph = async (slug?: string) => {
   const allDocuments = await getCollection('documents');
@@ -41,15 +41,14 @@ export const getKnowledgeGraph = async (slug?: string) => {
       continue;
     }
 
-
-    addToNodes(doc.id, doc.data.title, doc.data.permalink);
+    addToNodes(doc.id, doc.data.title, doc.data.permalink, doc.id.split('/')[0]);
 
     for (const link of doc.data.links ?? []) {
       const isSlugLink = !slug || doc.id === slug || link.id === slug;
 
       if (link.id && link.href && isSlugLink) {
         addToLinks(doc.id, link.id, 1);
-        addToNodes(link.id, link.title, link.href);
+        addToNodes(link.id, link.title, link.href, link.id.split('/')[0]);
       }
     }
   }

@@ -1,13 +1,14 @@
 ---
-import type { DocumentContext, NavigationContext } from "../../types";
+import type { DocumentContext, NavigationContext } from "@/types";
 
-import GraphIcon from '../Icons/Graph.astro';
-import OutlineIcon from '../Icons/Outline.astro';
-import LinkIcon from '../Icons/Link.astro';
+import GraphIcon from '@/components/Icons/Graph.astro';
+import OutlineIcon from '@/components/Icons/Outline.astro';
+import LinkIcon from '@/components/Icons/Link.astro';
 
-import Links from "../RightSidebar/Links.astro";
-import TableOfContents from "../RightSidebar/TableOfContents.astro";
-import KnowledgeGraph from "../KnowledgeGraph.astro";
+import KnowledgeGraph from "@/components/KnowledgeGraph.astro";
+
+import Links from "./Links.astro";
+import TableOfContents from "./TableOfContents.astro";
 
 export type Props = {
   id?: string;
@@ -113,7 +114,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
     <div
       class="hidden peer-checked/tab-three:flex tabset-content [grid-area:tabcontent]"
     >
-    <KnowledgeGraph slug={document?.id}  />
+        <KnowledgeGraph class="flex w-[95%] h-full aspect-square mx-auto rounded-lg bg-article-background dark:bg-article-background-dark" slug={document?.id}  />
     </div>
   )}
 

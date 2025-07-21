@@ -1,4 +1,4 @@
-import type { TranslateFn } from "../i18n/utils";
+import type { TranslateFn } from "@/i18n";
 
 
 

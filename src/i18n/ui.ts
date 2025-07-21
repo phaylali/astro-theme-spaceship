@@ -1,4 +1,4 @@
-import websiteConfig from "../../website.config.json";
+import websiteConfig from "@/config";
 
 export const languages = {
   en: 'English',
@@ -10,7 +10,7 @@ export const defaultLang = websiteConfig.defaultLocale;
 export const ui = {
   en: {
     'article.author.name': 'by {name}',
-    'footer.readingTime': 'Tiempo de Lectura: {readingTime}',
+    'footer.readingTime': 'Reding Time: {readingTime}',
     'footer.charactersCount': '{characters} characters',
     'footer.wordsCount': '{words} words',
     'format.minute': '{minute} minute',

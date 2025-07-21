@@ -1,24 +1,23 @@
 ---
-import '../styles/global.css';
-
 import { getCollection } from "astro:content";
-import website from "../../website.config.json";
-import Layout from "../components/Layout.astro";
-import LeftSidebar from "../components/LeftSidebar/LeftSidebar.astro";
-import {
-DOCUMENTS_COLLECTION_NAME,
-} from "../constants";
-import { buildTree } from "../helpers/buildTree";
-import { useI18n } from "../i18n/utils";
-import type { PageContext } from "../types";
+
+import "@/styles/global.css";
+
+import website from "@/config";
+import Layout from "@/components/Layout.astro";
+import LeftSidebar from "@/components/LeftSidebar/LeftSidebar.astro";
+import { DOCUMENTS_COLLECTION_NAME } from "@/constants";
+import { buildTree } from "@/helpers/buildTree";
+import { useI18n } from "@/i18n";
+import type { PageContext } from "@/types";
 
 const { t } = useI18n(Astro);
 
 const page: PageContext = {
   language: website.defaultLocale,
-  title: t('404.title'),
+  title: t("404.title"),
   seo: {
-    description: t('404.description'),
+    description: t("404.description"),
   },
 };
 
@@ -42,10 +41,10 @@ const entry = Astro.url.searchParams.get("entry");
 
   <article class="p-8 bg-gray-50 rounded-xl grow-1">
     <h1 class="text-4xl mb-4">
-      {t('404.title')}
+      {t("404.title")}
     </h1>
     <p class="text-lg">
-      {t('404.description')}
+      {t("404.description")}
     </p>
   </article>
 </Layout>

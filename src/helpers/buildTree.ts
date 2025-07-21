@@ -1,23 +1,46 @@
 import type { CollectionEntry } from "astro:content";
 
-import type { Node } from '../types';
+import type { Node } from '@/types';
+
+const getNodeOrder = (node: Node<CollectionEntry<'documents'>>) => {
+  const isFolder = node.children?.length;
+
+  if (!isFolder) {
+    return node.data?.data.order;
+  }
+
+  const lastUrlPart = node.permalink.split("/").at(-1);
+
+  const childIndex = node.children?.find((c) => {
+    const cLastUrlPart = c.permalink.split("/").at(-1);
+    return cLastUrlPart === lastUrlPart;
+  });
+
+  return childIndex?.data?.data.order;
+}
 
 // recursively sort the tree based on: data.order (numeric desc) or node.name (alphabetical asc)
 const sortFn = (a: Node<CollectionEntry<'documents'>>, b: Node<CollectionEntry<'documents'>>) => {
-  if (a.data?.data.order && !b.data?.data.order) {
+  const aOrder = getNodeOrder(a);
+  const bOrder = getNodeOrder(b);
+
+  if (typeof aOrder === 'number' && typeof bOrder !== 'number') {
     return -1;
-  } else if (!a.data?.data.order && b.data?.data.order) {
-    return 1;
-  } else if (a.data?.data.order && b.data?.data.order) {
-    return  a.data.data.order - b.data.data.order;
-  } else {
-    return a.name.localeCompare(b.name);
   }
+  if (typeof aOrder !== 'number' && typeof bOrder === 'number') {
+    return 1;
+  }
+  if (typeof aOrder === 'number' && typeof bOrder === 'number') {
+    return aOrder - bOrder;
+  }
+  return a.name.localeCompare(b.name);
 }
 
 function sortTree(node: Node<CollectionEntry<'documents'>>) {
   node.children?.sort(sortFn);
-  node.children?.forEach(child => sortTree(child));
+  for (const child of node.children ?? []) {
+    sortTree(child);
+  }
 }
 
 export function buildTree(data: CollectionEntry<'documents'>[]): Node<CollectionEntry<'documents'>>[] {
@@ -36,10 +59,10 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
       let existingNode = currentLevel.find(node => node.name === part.replaceAll('-', ' '));
 
       if (!existingNode) {
-        existingNode = { 
+        existingNode = {
           name: part.replaceAll('-', ' '),
           permalink: `${import.meta.env.BASE_URL}/${parts.slice(0, i + 1).join('/')}`.replace('//', '/'),
-          children: [] 
+          children: []
         };
         currentLevel.push(existingNode);
       }
@@ -50,12 +73,14 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
         existingNode.data = item;
       }
 
-      currentLevel = existingNode.children!;
+      currentLevel = existingNode.children;
     }
   }
 
   root.sort(sortFn);
-  root.forEach(node => sortTree(node));
+  for (const node of root) {
+    sortTree(node);
+  }
 
   return root
 }

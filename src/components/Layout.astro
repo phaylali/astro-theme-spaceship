@@ -1,10 +1,10 @@
 ---
-import websiteConfig from '../../website.config.json';
+import websiteConfig from '@/config';
 
-import type { DocumentContext, PageContext } from '../types';
+import type { DocumentContext, PageContext } from '@/types';
 
-import Footer from './Footer.astro';
-import SEO from './SEO.astro';
+import Footer from '@/components/Footer.astro';
+import SEO from '@/components/SEO.astro';
 
 export type Props = {
   page: PageContext

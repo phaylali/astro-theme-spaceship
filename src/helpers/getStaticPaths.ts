@@ -5,21 +5,21 @@ import {
 	AUTHORS_COLLECTION_NAME,
 	DOCUMENTS_COLLECTION_NAME,
 	TAGS_COLLECTION_NAME,
-} from "../constants";
+} from "@/constants";
 import type {
 	AuthorContext,
 	DocumentContext,
 	NavigationContext,
 	PageContext,
 	TagsContext,
-} from "../types";
+} from "@/types";
 
-import { buildAuthor } from "../helpers/buildAuthor";
-import { buildPage } from "../helpers/buildPage";
-import { buildTags } from "../helpers/buildTags";
-import { buildTree } from "../helpers/buildTree";
+import { buildAuthor } from "@/helpers/buildAuthor";
+import { buildPage } from "@/helpers/buildPage";
+import { buildTags } from "@/helpers/buildTags";
+import { buildTree } from "@/helpers/buildTree";
 
-import website from "../../website.config.json";
+import website from "@/config";
 
 export type Props = {
 	author?: AuthorContext;
@@ -68,7 +68,7 @@ export const getStaticPathsForThemePage = async (theme: string) => {
 	const allStaticPaths = await getStaticPaths();
 
 	const staticPath = allStaticPaths.find(
-		p => p.params.slug === `themes/${theme}/${theme}`
+		p => p.params.slug === `customization/built-in-themes/${theme}/${theme}`
 	) ?? allStaticPaths.find(
 		p => p.params.slug === 'examples/cheatsheets/markdown-cheatsheet'
 	);

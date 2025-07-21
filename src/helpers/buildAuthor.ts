@@ -1,4 +1,4 @@
-import type { AuthorContext, DocumentContext } from "../types";
+import type { AuthorContext, DocumentContext } from "@/types";
 
 export const buildAuthor = (doc: DocumentContext, author?: AuthorContext): AuthorContext|undefined => {
   if (author) {

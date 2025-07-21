@@ -1,14 +1,16 @@
 ---
-import "../styles/landing.css";
-
-import Logo from "../assets/logo.png";
-
-import website from "../../website.config.json";
-
-import KnowledgeGraph from "../components/KnowledgeGraph.astro";
-import Layout from "../components/Layout.astro";
-
 import { Image } from "astro:assets";
+
+import "@/styles/landing.css";
+import Logo from "@/assets/logo.png";
+
+import website from "@/config";
+
+import KnowledgeGraph from "@/components/KnowledgeGraph.astro";
+import Layout from "@/components/Layout.astro";
+
+
+const baseUrl = `/${website.base}introduction/introduction`
 ---
 
 <Layout
@@ -26,7 +28,7 @@ import { Image } from "astro:assets";
   <div class="absolute w-full h-full">
     <KnowledgeGraph />
   </div>
-  <a href={`/${website.base}/welcome`}>
+  <a href={baseUrl}>
     <section
       class="perspective group absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
     >
@@ -37,7 +39,7 @@ import { Image } from "astro:assets";
       />
     </section>
   </a>
-  <a href={`/${website.base}/welcome`}>
+  <a href={baseUrl}>
     <section
       class="absolute bottom-[20px] md:bottom-[100px] left-[50%] -translate-x-[50%] flex flex-col gap-3 md:gap-6 items-center transition-all group-hover:-rotate-x-25"
     >
