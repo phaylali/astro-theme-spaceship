@@ -1,0 +1,5 @@
+---
+relateds:
+  - "[[Cheatsheet]]"
+  - "[[Lorem]]"
+---

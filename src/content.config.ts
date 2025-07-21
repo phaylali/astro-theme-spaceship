@@ -12,6 +12,7 @@ export const collections = {
 			author: config.author,
 			base: 'src/content/vault',
 			url: '',
+			wikilinkFields: ['relateds']
 		}),
 		schema: ({ image }) => ObsidianDocumentSchema.extend({
       image: image().optional(),

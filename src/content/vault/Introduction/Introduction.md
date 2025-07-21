@@ -1,4 +1,11 @@
-# 🌌 Spaceship
+---
+order: 0
+relateds:
+  - "[[Getting Started]]"
+  - "[[Configuration]]"
+  - "[[Customization]]"
+  - "[[Markdown]]"
+---
 
 **Astro Spaceship** is a powerful, minimal, and flexible theme designed for turning your Obsidian vault into a beautiful, static website using Astro and TailwindCSS. Whether you're sharing your digital garden, notes, or a Zettelkasten, this theme helps bring your knowledge to the web with elegance and ease.
 
@@ -37,69 +44,3 @@
 - Share your research notes and knowledge base
 - Create a personal wiki
 - Document creative projects or coursework
-
----
-
-## 📸 Screenshots
-
-![[001.jpg]]
-![[002.jpg]]
-![[003.jpg]]
-![[004.jpg]]
-
----
-
-## 🛠 Setup & Usage
-
-1. Start a new project with `create astro` or just clone this repo.
-```sh
-npm create astro@latest -- --template aitorllj93/astro-theme-spaceship
-```
-2. Drop your Obsidian vault into the `content/` folder.
-3. Customize your config (navigation, theme colors, etc.)
-4. Run `npm install && npm run dev` to get started!
-
-###  Customization
-
-* `website.config.mjs`: Global settings such as the Website name and default author
-* `styles/global.css`: Tailwind CSS configuration
-* `content.config.ts`: Your collections config, including the Obsidian one. Be careful while applying changes here.
-* `content`: Your Obsidian Vault + some metadata collections: Authors and Tags
-
----
-
-## 🧠 Notes
-
-- Internal links work only for files within the vault structure.
-- Uses YAML frontmatter for publishing logic.
-- Markdown rendering includes code highlighting, math support (optional), and responsive design out-of-the-box.
-
----
-
-## 🧪 Future Improvements
-
-- Search functionality
-- Dark mode toggle
-- Custom plugin support
-- Tag pages and graph view
-- Configuration script
-
----
-
-## 📄 License
-
-MIT – Free to use, modify, and share.
-
----
-
-## Examples
-
-Here are some examples to get started with:
-
-### Cheatsheets
-
-- [[Markdown Cheatsheet]]
-
-### Templates
-
-- [[Lorem|Blogging Lorem Ipsum]]

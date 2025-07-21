@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7751afa617732e1c",
+        "id": "a81720ebe9876fd3",
         "type": "tabs",
         "children": [
           {
-            "id": "7966798592644671",
+            "id": "86126c6b737a2639",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -148,8 +148,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -161,16 +160,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7966798592644671",
+  "active": "23b60824676cc055",
   "lastOpenFiles": [
+    "Themes/Galaxy/Galaxy.md",
+    "Themes/Galaxy/Dark.md",
+    "Themes/Galaxy/Light.md",
     "Examples/Lorem.md",
+    "Content Loader.md",
+    "Assets/Screenshots/001.jpg",
+    "Assets/Screenshots/004.jpg",
+    "Assets/Screenshots/003.jpg",
+    "Assets/Screenshots/0003.jpg",
+    "Assets/Screenshots/002.jpg",
+    "Assets/Screenshots/Captura de pantalla Abr 06 2025.jpg",
+    "Assets/Screenshots/Captura de pantalla Abr 06 2025 (4).jpg",
+    "Assets/Screenshots/Captura de pantalla Abr 06 2025 (3).jpg",
+    "Assets/Screenshots/Captura de pantalla Abr 06 2025 (1).jpg",
+    "Assets/Screenshots",
     "Assets/logos",
-    "Welcome.md",
+    "Introduction.md",
     "Assets/BlogCover.avif",
-    "Assets/Mesa con café y cuaderno.avif",
-    "Assets/premium_photo-1684581214880-2043e5bc8b8b.avif",
-    "Assets/logos/obsidian.svg",
-    "Assets/logos/astro.png",
     "Assets",
     "Examples/Cheatsheets/Markdown Cheatsheet.md",
     "Examples/Cheatsheets",
