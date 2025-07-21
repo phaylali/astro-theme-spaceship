@@ -1,4 +1,5 @@
 ---
+import config from "@/config";
 import type { DocumentContext } from "@/types";
 
 export type Props = {
@@ -7,8 +8,11 @@ export type Props = {
 
 const { updated } = Astro.props.document.data;
 ---
+
 {
-  updated && (
-    <span data-pagefind-weight="0" class="article-date">{updated.toLocaleDateString("es-ES")}</span>
+  updated && config.displayOptions?.showPublishDate !== false && (
+    <span data-pagefind-weight="0" class="article-date">
+      {updated.toLocaleDateString("es-ES")}
+    </span>
   )
 }

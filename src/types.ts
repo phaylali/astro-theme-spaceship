@@ -1,8 +1,16 @@
 import type { CollectionEntry } from "astro:content";
 
 export type WebsiteContext = {
-  title: string;
+  author?: string;
+  base?: string;
   defaultLocale: string;
+  description?: string;
+  site?: string;
+  title: string;
+  displayOptions?: {
+    showAuthor?: boolean;
+    showPublishDate?: boolean;
+  }
 };
 
 export type Seo = {

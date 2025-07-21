@@ -4,5 +4,9 @@
   "defaultLocale": "en",
   "description": "Ship your Second Brain into the Cyber-Space",
   "site": "https://aitorllj93.github.io",
-  "title": "Spaceship"
+  "title": "Spaceship",
+  "displayOptions": {
+    "showAuthor": false,
+    "showPublishDate": false
+  }
 }

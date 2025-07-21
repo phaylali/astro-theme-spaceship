@@ -1,4 +1,5 @@
 ---
+import config from "@/config";
 import { useI18n } from '@/i18n';
 import type { AuthorContext } from '@/types'
 
@@ -11,14 +12,14 @@ const { t } = useI18n(Astro);
 const { author } = Astro.props;
 ---
 {
-  author && (
+  author && config.displayOptions?.showAuthor !== false && (
     <span data-pagefind-weight="0" class="article-author">
       {t("article.author.name", { name: author.data.name })}
     </span>
   )
 }
 {
-  author?.data.title && (
+  author?.data.title && config.displayOptions?.showAuthor !== false && (
     <span data-pagefind-weight="0" class="article-author">{author.data.title}</span>
   )
 }
