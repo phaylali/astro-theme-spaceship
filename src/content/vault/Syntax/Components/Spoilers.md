@@ -2,8 +2,6 @@
 order: 40
 ---
 
-### Demo
-
 ```spoiler-markdown
 
 ## Markdown 
@@ -12,6 +10,19 @@ order: 40
 
 [github.com](https://github.com)
 ```
+
+### Usage
+
+
+````sh
+```spoiler-markdown
+## Markdown 
+
+My markdown content goes here.
+
+[github.com](https://github.com)
+```
+````
 
 
 ### Obsidian Plugin

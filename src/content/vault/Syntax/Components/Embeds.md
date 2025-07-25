@@ -2,8 +2,6 @@
 order: 50
 ---
 
-### Demo
-
 ```embed
 title: "Is TRAE really the new Cursor Killer?"
 image: "https://i.ytimg.com/vi/P474KSwzsr8/maxresdefault.jpg"
@@ -12,6 +10,19 @@ url: "https://www.youtube.com/watch?v=P474KSwzsr8"
 favicon: ""
 aspectRatio: "56.25"
 ```
+
+### Usage
+
+````sh
+```embed
+title: "Is TRAE really the new Cursor Killer?"
+image: "https://i.ytimg.com/vi/P474KSwzsr8/maxresdefault.jpg"
+description: "Watch at 1.5x speed, guys 🙏If you wanna learn together, join the free Discord 👉 https://discord.gg/CBC2Affwu3👉 https://www.trae.ai/-----------------------..."
+url: "https://www.youtube.com/watch?v=P474KSwzsr8"
+favicon: ""
+aspectRatio: "56.25"
+```
+````
 
 ### Obsidian Plugin
 
