@@ -8,11 +8,11 @@ iframe {
 
 
 @utility embed-figure {
-  @apply flex rounded-sm border-gray-500 border mb-4;
+  @apply flex flex-col sm:flex-row rounded-sm border-gray-400 dark:border-obsidian-400 border mb-4;
 }
 
 @utility embed-picture {
-  @apply max-w-[min(50%,_320px)];
+  @apply sm:max-w-[min(50%,_320px)];
 
   img {
     @apply rounded-bl-sm rounded-tl-sm w-full h-full;
@@ -27,6 +27,10 @@ iframe {
   }
 
   p {
-    @apply m-0 text-sm;
+    @apply m-0 text-sm line-clamp-3 text-ellipsis;
   }
+}
+
+@utility embed-url {
+  @apply text-obsidian-800;
 }

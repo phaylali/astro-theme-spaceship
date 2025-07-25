@@ -40,6 +40,11 @@ export const mdast2Tree = (mdast: Node, properties: Properties = {}) => {
     result.tagName = "li";
   }
 
+  if (result.tagName === "heading") {
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    result.tagName = `h${(result as any).depth}`;
+  }
+
   if (result.tagName === "paragraph") {
     result.tagName = "p";
   }

@@ -51,6 +51,7 @@ export const embed = (node: Text) => {
                 tagName: "img",
                 properties: {
                   src: options.image,
+                  style: `aspect-ratio: 100 / ${options.aspectRatio ?? 50};`
                 }
               }
             ],
@@ -65,6 +66,9 @@ export const embed = (node: Text) => {
               options.title ? {
                 type: "element",
                 tagName: "h5",
+                properties: {
+                  className: ["embed-title"],
+                },
                 children: [
                   {
                     type: "text",
@@ -75,6 +79,9 @@ export const embed = (node: Text) => {
               options.description ? {
                 type: "element",
                 tagName: "p",
+                properties: {
+                  className: ["embed-description"],
+                },
                 children: [
                   {
                     type: "text",
@@ -85,6 +92,9 @@ export const embed = (node: Text) => {
               {
                 type: "element",
                 tagName: "p",
+                properties: {
+                  className: ["embed-url"],
+                },
                 children: [
                   {
                     type: "text",

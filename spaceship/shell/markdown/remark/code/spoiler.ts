@@ -12,42 +12,51 @@ export const spoiler = (node: Text) => {
     before: [
       {
         type: 'element',
-        tagName: 'input',
+        tagName: 'div',
         properties: {
-          type: 'checkbox',
-          id: 'spoilerToggle',
-          className: 'absolute sr-only peer'
-        }
-      },
-      {
-        type: 'element',
-        tagName: 'label',
-        properties: {
-          for: 'spoilerToggle',
-          className: "spoiler"
+          className: 'spoiler'
         },
         children: [
           {
             type: 'element',
-            tagName: 'p',
+            tagName: 'input',
+            properties: {
+              type: 'checkbox',
+              id: 'spoilerToggle',
+              className: 'absolute sr-only peer'
+            }
+          },
+          {
+            type: 'element',
+            tagName: 'label',
+            properties: {
+              for: 'spoilerToggle',
+              className: "spoiler-toggle"
+            },
             children: [
               {
-                type: 'text',
-                value: 'Display Spoiler'
+                type: 'element',
+                tagName: 'p',
+                children: [
+                  {
+                    type: 'text',
+                    value: 'Display Spoiler'
+                  }
+                ]
               }
             ]
-          }
+          },
+          {
+            type: 'element',
+            tagName: 'label',
+            properties: {
+              for: 'spoilerToggle',
+              className: "spoiler-content"
+            },
+            children,
+          },
         ]
-      },
-      {
-        type: 'element',
-        tagName: 'label',
-        properties: {
-          for: 'spoilerToggle',
-          className: "spoiled"
-        },
-        children,
-      },
+      }
     ]
   }
 }
