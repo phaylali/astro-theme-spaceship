@@ -4,7 +4,7 @@ relateds:
   - "[[Getting Started]]"
   - "[[Configuration]]"
   - "[[Customization]]"
-  - "[[Syntax]]"
+  - "[[Features]]"
 ---
 
 **Astro Spaceship** is a powerful, minimal, and flexible theme designed for turning your Obsidian vault into a beautiful, static website using Astro and TailwindCSS. Whether you're sharing your digital garden, notes, or a Zettelkasten, this theme helps bring your knowledge to the web with elegance and ease.
