@@ -1,8 +1,12 @@
 
-import { fromMarkdown, mdast2Tree } from './utils.mjs';
+import type { Text } from 'hast';
+import { fromMarkdown, mdast2Tree } from './utils';
+import { isElement } from '../../utils/hast';
 
-export const spoiler = (node) => {
+export const spoiler = (node: Text) => {
   const newNode = mdast2Tree(fromMarkdown(node.value, undefined));
+
+  const children = isElement(newNode) ? newNode.children : [];
 
   return {
     before: [
@@ -42,7 +46,7 @@ export const spoiler = (node) => {
           for: 'spoilerToggle',
           className: "spoiled"
         },
-        children: newNode.children,
+        children,
       },
     ]
   }

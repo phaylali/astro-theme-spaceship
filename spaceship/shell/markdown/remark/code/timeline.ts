@@ -1,7 +1,14 @@
 
-import { fromMarkdown, mdast2Tree } from './utils.mjs';
+import type { Text } from 'hast';
+import { fromMarkdown, mdast2Tree } from './utils';
 
-export const timeline = (node) => {
+type Block = {
+  date: string;
+  title: string;
+  content: string;
+}
+
+export const timeline = (node: Text) => {
   // extract first line from node.value and separate the rest based on newlines
 
   const lines = node.value.split("\n");
@@ -27,11 +34,11 @@ export const timeline = (node) => {
     } else if (line.startsWith("content:")) {
       curBlock.content = line.replace("content:", "").trim();
     } else {
-      curBlock.content += line + "\n";
+      curBlock.content += `${line}\n`;
     }
 
     return acc;
-  }, []);
+  }, [] as Block[]);
 
   const children = items.map((item, index) => {
     const mdastDate = mdast2Tree(fromMarkdown(item.date, undefined), {
@@ -43,7 +50,7 @@ export const timeline = (node) => {
     const mdastContent = mdast2Tree(fromMarkdown(item.content, undefined), {
       className: ["timeline-card--content"],
     });
-    const isEven = index % 2 == 0;
+    const isEven = index % 2 === 0;
 
     const card = {
       type: "element",

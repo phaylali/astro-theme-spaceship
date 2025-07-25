@@ -6,15 +6,21 @@ import rehypeRewrite from "rehype-rewrite";
 import remarkCodeExtra from "remark-code-extra";
 import remarkObsidianCallout from 'remark-obsidian-callout';
 
-import rehypeRewriteConfig from "./rehype/index.mjs";
-import remarkCodeExtraConfig from "./remark/code/index.mjs";
+import rehypeRewriteConfig from "./rehype";
+import remarkCodeExtraConfig from "./remark/code";
+import type { AstroUserConfig } from 'astro';
+
+type MarkdownConfig = NonNullable<AstroUserConfig['markdown']>;
+type RemarkPlugin = NonNullable<MarkdownConfig['remarkPlugins']>[number];
 
 export default {
   remarkPlugins: [
-    remarkObsidianCallout, 
-    [remarkEmbedder.default, {
+    (remarkObsidianCallout as RemarkPlugin), 
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    [(remarkEmbedder as any).default, {
       transformers: [
-        [remarkEmbedderOembed.default]
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        [(remarkEmbedderOembed as any).default]
       ],
     }],
     [
@@ -34,4 +40,4 @@ export default {
       dark: 'github-dark',
     },
   },
-}
+} satisfies MarkdownConfig
