@@ -10,12 +10,13 @@ export const defaultLang = websiteConfig.defaultLocale;
 export const ui = {
   en: {
     'article.author.name': 'by {name}',
-    'footer.readingTime': 'Reding Time: {readingTime}',
+    'footer.readingTime': 'Reading Time: {readingTime}',
     'footer.charactersCount': '{characters} characters',
     'footer.wordsCount': '{words} words',
     'format.minute': '{minute} minute',
     'format.minutes': '{minutes} minutes',
     'format.seconds': '{seconds} seconds',
+    'format.second': '{second} second',
     'format.milliseconds': '{milliseconds} milliseconds',
     'nav.links': 'Links',
     'nav.linkedMentions': 'Linked Mentions',
@@ -31,6 +32,7 @@ export const ui = {
     'format.minute': '{minute} minuto',
     'format.minutes': '{minutes} minutos',
     'format.seconds': '{seconds} segundos',
+    'format.second': '{second} segundo',
     'format.milliseconds': '{milliseconds} milisegundos',
     'nav.links': 'Enalces',
     'nav.linkedMentions': 'Menciones',

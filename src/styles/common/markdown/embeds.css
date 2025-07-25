@@ -5,3 +5,28 @@ iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
+
+
+@utility embed-figure {
+  @apply flex rounded-sm border-gray-500 border mb-4;
+}
+
+@utility embed-picture {
+  @apply max-w-[min(50%,_320px)];
+
+  img {
+    @apply rounded-bl-sm rounded-tl-sm w-full h-full;
+  }
+}
+
+@utility embed-caption {
+  @apply flex flex-col py-4 px-5 gap-2;
+
+  h5 {
+    @apply text-lg font-bold line-clamp-1;
+  }
+
+  p {
+    @apply m-0 text-sm;
+  }
+}

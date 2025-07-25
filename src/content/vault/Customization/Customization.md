@@ -1,5 +1,5 @@
 ---
 order: 5
-relateds:
-  - "[[Built-in Themes]]"
 ---
+
+- [[Built-in Themes]]

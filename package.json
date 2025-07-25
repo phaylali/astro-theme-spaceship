@@ -21,6 +21,7 @@
     "astro-loader-obsidian": "^0.1.14",
     "astro-pagefind": "^1.8.3",
     "d3": "^7.9.0",
+    "front-matter": "^4.0.2",
     "html-to-text": "^9.0.5",
     "mdast-util-from-markdown": "^2.0.2",
     "reading-time": "^1.5.0",

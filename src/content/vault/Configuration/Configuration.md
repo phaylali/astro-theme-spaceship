@@ -1,8 +1,5 @@
 ---
 order: 3
-relateds:
-  - "[[Website Config]]"
-  - "[[Content Collections]]"
 ---
 
 ## Website Configuration

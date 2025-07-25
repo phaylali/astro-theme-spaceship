@@ -2,6 +2,8 @@
 order: 20
 ---
 
+### Demo
+
 > [!note] Note Callout
 > This is a note callout
 
@@ -50,3 +52,13 @@ order: 20
 > This is a quote callout<br/>
 > Aliases: `cite`
 
+### Obsidian Documentation
+
+```embed
+title: "Callouts - Obsidian Help"
+image: "https://publish-01.obsidian.md/access/f786db9fac45774fa4f0d8112e232d67/Attachments/obsidian-lockup-help.svg"
+description: "Callouts - Obsidian Help"
+url: "https://help.obsidian.md/callouts"
+favicon: ""
+aspectRatio: "13.666666666666666"
+```

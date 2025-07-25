@@ -1,5 +1,5 @@
 ---
-title: Lorem Ipsum Blog Title
+title: Blog Post Example
 excerpt: This is an introduction sentence. It's meant to lead or tease the reader. Copy and paste this text block to the "excerpt" section under Options. Also, use it as a caption on social media.
 author: company-news
 cover: Assets/BlogCover.avif

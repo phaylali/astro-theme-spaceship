@@ -1,7 +1,9 @@
 
-import type { Element, Node, Properties } from 'hast';
+import type { Element, Node, Properties, Text } from 'hast';
+import fm from "front-matter";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { isText } from '../../utils/hast';
+import type { z, ZodSchema } from 'zod';
 
 export { fromMarkdown };
 
@@ -48,3 +50,15 @@ export const mdast2Tree = (mdast: Node, properties: Properties = {}) => {
 
   return result;
 };
+
+export const frontMatter = <T extends ZodSchema>(node: Text, schema: T): z.infer<T> => {
+  const { attributes } = fm<z.input<typeof schema>>(`---\n${node.value}\n---\n`);
+
+  if (!attributes) {
+    return null;
+  }
+
+  const options = schema.parse(attributes);
+
+  return options;
+}

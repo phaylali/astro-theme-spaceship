@@ -48,7 +48,8 @@ export const getKnowledgeGraph = async (slug?: string) => {
 
       if (link.id && link.href && isSlugLink) {
         addToLinks(doc.id, link.id, 1);
-        addToNodes(link.id, link.title, link.href, link.id.split('/')[0]);
+        const linkedNode = allDocuments.find(d => d.id === link.id);
+        addToNodes(link.id, linkedNode?.data.title ?? link.title, link.href, link.id.split('/')[0]);
       }
     }
   }

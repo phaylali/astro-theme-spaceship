@@ -1,5 +1,3 @@
----
-relateds:
-  - "[[Galaxy]]"
-  - "[[Monolith]]"
----
+
+- [[Galaxy]]
+- [[Monolith]]

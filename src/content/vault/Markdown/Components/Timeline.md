@@ -2,7 +2,7 @@
 order: 30
 ---
 
-https://github.com/George-debug/obsidian-timeline
+### Demo
 
 ```timeline-labeled
 [line-3, body-2]
@@ -15,4 +15,15 @@ date: 17th century
 title: Europe and coffee
 content:
 In 1616, the Dutch founded the first European-owned coffee estate in Sri Lanka, then Ceylon, then Java in 1696. The French began growing coffee in the Caribbean, followed by the Spanish in Central America and the Portuguese in Brazil. European coffee houses sprang up in Italy and later France, where they reached a new level of popularity. Now, it is de _rigueur_ for Parisians to indulge in a cup of coffee and a baguette or croissant at the numerous coffee cafes throughout Paris.
+```
+
+### Obsidian Plugin
+
+```embed
+title: "GitHub - George-debug/obsidian-timeline: Obisdian.md plugin for creating timelines"
+image: "https://opengraph.githubassets.com/6d572565c84274fbc4da04e73809305d61cfa9dc80dbbed70c4e27f3b2115ec3/George-debug/obsidian-timeline"
+description: "Obisdian.md plugin for creating timelines . Contribute to George-debug/obsidian-timeline development by creating an account on GitHub."
+url: "https://github.com/George-debug/obsidian-timeline"
+favicon: ""
+aspectRatio: "50"
 ```
