@@ -1,6 +1,7 @@
 
 
 import type { Text } from "hast";
+import { docEmb } from "./doc_emb";
 import { embed } from "./embed";
 import { spoiler } from "./spoiler";
 import { timeline } from "./timeline";
@@ -9,6 +10,7 @@ const transformers = {
   'spoiler-markdown': spoiler,
   'timeline-labeled': timeline,
   'embed': embed,
+  '$doc_emb': docEmb,
 } as const;
 
 

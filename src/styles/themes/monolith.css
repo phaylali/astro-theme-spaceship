@@ -96,6 +96,14 @@ body {
   @apply text-base;
 }
 
+@utility file-embed {
+  @apply border-l-2 border-primary ps-6;
+}
+
+@utility file-embed-title {
+  @apply font-semibold;
+}
+
 @utility sidebar {
   @apply bg-article-background dark:bg-article-background-dark;
 }

@@ -34,3 +34,9 @@ iframe {
 @utility embed-url {
   @apply text-obsidian-800;
 }
+
+@utility file-embed {
+  > a {
+    @apply no-underline opacity-100;
+  }
+}

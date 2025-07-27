@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 20
 cover: Assets/BlogCover.avif
 cover-x: 50
 cover-y: 25

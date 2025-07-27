@@ -1,9 +1,9 @@
 ---
-order: 2
+order: 40
 ---
 
 - [[Images]]
 - [[Callouts]]
 - [[Timeline]]
 - [[Spoilers]]
-- [[Embeds]]
+- [[Link Embeds]]
