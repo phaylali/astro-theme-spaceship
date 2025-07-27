@@ -68,6 +68,10 @@
   @apply !mt-2 text-center opacity-60 italic;
 }
 
+@utility article-blockquote {
+  @apply prose-blockquote:border-text dark:prose-blockquote:border-text-dark;
+}
+
 @utility article-description {
   @apply !m-0 !mb-8 text-2xl lg:text-3xl xl:text-4xl text-balance;
 }

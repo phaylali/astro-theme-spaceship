@@ -7,7 +7,7 @@
 }
 
 @utility article-blockquote {
-  @apply prose-blockquote:border-text dark:prose-blockquote:border-text-dark prose-blockquote:text-blockquote-foreground dark:prose-blockquote:text-blockquote-foreground-dark;
+  @apply prose-blockquote:text-blockquote-foreground dark:prose-blockquote:text-blockquote-foreground-dark;
 }
 
 @utility article-code {

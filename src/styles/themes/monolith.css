@@ -56,6 +56,24 @@ body {
 
 @utility article {
   @apply text-base p-8;
+
+  ::selection {
+    @apply bg-primary/20 dark:bg-primary/25;
+  }
+}
+
+
+@utility article-blockquote {
+  @apply prose-blockquote:border-l-2 prose-blockquote:border-primary prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:ps-6;
+}
+
+@utility prose {
+  blockquote p:first-of-type::before {
+    content: none;
+  }
+  blockquote p:first-of-type::after {
+    content: none;
+  }
 }
 
 @utility article-content {

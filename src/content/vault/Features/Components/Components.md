@@ -2,7 +2,8 @@
 order: 2
 ---
 
+- [[Images]]
 - [[Callouts]]
-- [[Embeds]]
-- [[Spoilers]]
 - [[Timeline]]
+- [[Spoilers]]
+- [[Embeds]]

@@ -73,7 +73,7 @@ export function buildTree(data: CollectionEntry<'documents'>[]): Node<Collection
         existingNode.data = item;
       }
 
-      currentLevel = existingNode.children;
+      currentLevel = existingNode.children as Node<CollectionEntry<'documents'>>[];
     }
   }
 
