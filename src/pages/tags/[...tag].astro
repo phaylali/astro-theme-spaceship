@@ -1,0 +1,13 @@
+---
+import '@/styles/global.css';
+
+import { getStaticPaths, type Props } from "@/components/Tag/utils/get-static-paths";
+
+import Page from '@/components/Tag/Page.astro';
+
+export type { Props };
+
+export { getStaticPaths };
+---
+
+<Page {...Astro.props} />

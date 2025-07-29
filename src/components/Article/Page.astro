@@ -1,5 +1,5 @@
 ---
-import type { Props } from "@/helpers/getStaticPaths";
+import type { Props } from "@/components/Article/utils/get-static-paths";
 import Entry from "@/components/Article/Entry.astro";
 import Layout from "@/components/Layout.astro";
 import LeftSidebar from "@/components/LeftSidebar/LeftSidebar.astro";
@@ -14,5 +14,9 @@ const { author, document, navigation, page, tags, website } = Astro.props;
   <slot />
   <LeftSidebar website={website} navigation={navigation} />
   <Entry author={author} document={document} tags={tags} />
-  <RightSidebar document={document} navigation={navigation} />
+  <RightSidebar 
+    document={document} 
+    navigation={navigation}
+    showToC={(document?.rendered?.metadata?.headings as []).length > 0}
+    />
 </Layout>

@@ -1,8 +1,8 @@
 ---
 import '@/styles/themes/galaxy-light.css';
 
-import { getStaticPathsForThemePage } from "@/helpers/getStaticPaths";
-import Page from '@/components/Page.astro';
+import { getStaticPathsForThemePage } from "@/components/Article/utils/get-static-paths";
+import Page from '@/components/Article/Page.astro';
 
 const staticPath = await getStaticPathsForThemePage('galaxy');
 

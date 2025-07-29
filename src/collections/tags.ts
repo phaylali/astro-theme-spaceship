@@ -10,6 +10,7 @@ export default {
 		schema:  () => z.object({
 			name: z.string(),
 			description: z.string().optional(),
+			permalink: z.string().optional(),
 		})
 	})
 };

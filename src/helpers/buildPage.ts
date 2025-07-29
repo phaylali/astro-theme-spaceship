@@ -1,5 +1,5 @@
 import websiteConfig from "@/config";
-import type { DocumentContext, PageContext } from "@/types";
+import type { DocumentContext, PageContext, TagContext } from "@/types";
 
 const shortenText = (text: string, length: number) => {
   if (text.length > length) {
@@ -36,6 +36,36 @@ export const buildPage = (doc: DocumentContext, language = websiteConfig.default
       twitter: {
         description,
         image,
+        title,
+      },
+    }
+  }
+}
+
+export const buildTagPage = (tag: TagContext, language = websiteConfig.defaultLocale): PageContext => {
+
+  const docDescription = tag.data.description;
+
+  const title = tag.data.name;
+  const description = docDescription && shortenText(docDescription, 160);
+  const keywords = tag.data.name;
+  const siteName = websiteConfig.title;
+
+
+  return {
+    title,
+    language,
+    seo: {
+      title,
+      description,
+      keywords,
+      openGraph: {
+        description,
+        title,
+        siteName,
+      },
+      twitter: {
+        description,
         title,
       },
     }

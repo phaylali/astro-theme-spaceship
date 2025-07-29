@@ -41,6 +41,7 @@ export type PageContext = {
 
 export type AuthorContext = CollectionEntry<"authors">;
 export type DocumentContext = CollectionEntry<"documents">;
+export type TagContext = CollectionEntry<"tags">;
 export type TagsContext = {
   tags: CollectionEntry<"tags">[];
 };

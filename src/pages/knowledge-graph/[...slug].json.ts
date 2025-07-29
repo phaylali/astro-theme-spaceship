@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-import { getStaticPaths } from "@/helpers/getStaticPaths"
+import { getStaticPaths } from "@/components/Article/utils/get-static-paths";
 import { getKnowledgeGraph } from "@/helpers/getKnowledgeGraph";
 
 export const GET: APIRoute = async ({ params }) => {

@@ -23,11 +23,11 @@ const { id, document, navigation, showToC = true, showLinks = true, showRelation
 
 const gridTemplates = {
   "[grid-template-areas:'tab1_tab2_tab3''tabcontent_tabcontent_tabcontent'] grid-cols-3": showToC && showLinks && showRelations,
-  "[grid-template-areas:'a_tab2_tab3''a_tabcontent_tabcontent'] grid-cols-2": !showToC && showLinks && showRelations,
-  "[grid-template-areas:'a_b_tab3''a_b_tabcontent'] grid-cols-1": !showToC && !showLinks && showRelations,
+  "[grid-template-areas:'tab2_tab3''tabcontent_tabcontent'] grid-cols-2": !showToC && showLinks && showRelations,
+  "[grid-template-areas:'tab3''tabcontent'] grid-cols-1": !showToC && !showLinks && showRelations,
   "[grid-template-areas:'a_b_c''a_b_c']": !showToC && !showLinks && !showRelations,
-  "[grid-template-areas:'tab1_b_tab3''tabcontent_b_tabcontent'] grid-cols-2": showToC && !showLinks && showRelations,
-  "[grid-template-areas:'tab1_b_c''tabcontent_b_c'] grid-cols-1": showToC && !showLinks && !showRelations,
+  "[grid-template-areas:'tab1_tab3''tabcontent_tabcontent'] grid-cols-2": showToC && !showLinks && showRelations,
+  "[grid-template-areas:'tab1''tabcontent'] grid-cols-1": showToC && !showLinks && !showRelations,
   "[grid-template-areas:'tab1_tab2''tabcontent_tabcontent'] grid-cols-2": showToC && showLinks && !showRelations,
 };
 
@@ -66,6 +66,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
       type="radio"
       name={id}
       class="peer/tab-two opacity-0 absolute [grid-area:tab2]"
+      checked={!showToC}
     />
     <label
       for={`${id}-tab-two`}
@@ -83,6 +84,7 @@ const template = Object.entries(gridTemplates).find(([k, v]) => v === true)?.[0]
       type="radio"
       name={id}
       class="peer/tab-three opacity-0 absolute [grid-area:tab3]"
+      checked={!showToC && !showLinks}
     />
     <label
       for={`${id}-tab-three`}

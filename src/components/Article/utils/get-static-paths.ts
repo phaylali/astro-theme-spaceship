@@ -11,6 +11,7 @@ import type {
 	DocumentContext,
 	NavigationContext,
 	PageContext,
+	TagContext,
 	TagsContext,
 } from "@/types";
 
@@ -27,7 +28,16 @@ export type Props = {
 	navigation: NavigationContext;
 	page: PageContext;
 	tags: TagsContext;
-  website: typeof website;
+	website: typeof website;
+};
+
+export type TagProps = {
+	author?: AuthorContext;
+	documents: DocumentContext[];
+	navigation: NavigationContext;
+	page: PageContext;
+	tag: TagContext;
+	website: typeof website;
 };
 
 export const getStaticPaths = (async () => {
@@ -58,7 +68,7 @@ export const getStaticPaths = (async () => {
 					document,
 					tags.filter((t) => document.data.tags?.some((dt) => dt === t.id)),
 				),
-        website,
+				website,
 			} satisfies Props,
 		}));
 }) satisfies GetStaticPaths;
