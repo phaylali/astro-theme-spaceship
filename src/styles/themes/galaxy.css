@@ -1,4 +1,5 @@
 @import 'spaceship-monolith/base';
+@source "../../../node_modules/astro-spaceship/shell/markdown";
 
 /* ibm-plex-sans-latin-wght-normal */
 @font-face {
