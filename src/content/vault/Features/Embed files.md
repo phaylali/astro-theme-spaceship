@@ -4,6 +4,8 @@ order: 10
 
 ![[Features]]
 
+![[Cheatsheet#Herculis enim cohaesit]]
+
 ### Obsidian Documentation
 
 ```embed
