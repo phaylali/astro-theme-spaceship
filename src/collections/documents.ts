@@ -1,4 +1,4 @@
-import { ObsidianDocumentSchema, ObsidianMdLoader } from "astro-loader-obsidian";
+import { ObsidianDocumentSchema, ObsidianMdLoader, ObsidianWikiLinkSchema } from "astro-loader-obsidian";
 import { defineCollection, z } from 'astro:content';
 
 import config from '@/config';
@@ -14,6 +14,9 @@ export default {
       wikilinkFields: ['relateds']
     }),
     schema: ({ image }) => ObsidianDocumentSchema.extend({
+      images: ObsidianWikiLinkSchema.extend({
+        href: image().optional(),
+      }).array().optional(),
       image: image().optional(),
       // or
       subtitle: z.string().optional(),
