@@ -11,7 +11,7 @@ const { tree } = Astro.props.navigation;
 ---
 
 <nav class="navigation-tree">
-  <ul class="flex flex-col gap-0.5">
+  <ul class="navigation-tree-list">
     {tree.map((document) => <Leaf node={document} />)}
   </ul>
 </nav>

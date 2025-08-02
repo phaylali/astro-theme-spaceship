@@ -4,7 +4,18 @@ order: 10
 
 ![[Features]]
 
+### Embed Sections
+
 ![[Cheatsheet#Herculis enim cohaesit]]
+
+### Usage
+
+```sh
+![[Features]]
+
+![[Cheatsheet#Herculis enim cohaesit]]
+```
+
 
 ### Obsidian Documentation
 

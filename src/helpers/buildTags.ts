@@ -19,7 +19,7 @@ export const buildTags = (
         permalink: toUrl(t.id, join(config.base, '/tags'), false, config.defaultLocale)
       }
     })).concat(
-      docTags?.map((t) => ({
+      (docTags.filter(Boolean) as string[]).map((t) => ({
         id: t,
         collection: "tags",
         data: {

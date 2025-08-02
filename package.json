@@ -1,7 +1,7 @@
 {
   "name": "spaceship",
   "type": "module",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "scripts": {
     "dev": "astro dev",
     "dev-setup": "npm link astro-spaceship astro-loader-obsidian spaceship-monolith",
@@ -18,14 +18,14 @@
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.3",
     "astro": "^5.12.1",
-    "astro-loader-obsidian": "^0.4.0",
+    "astro-loader-obsidian": "^0.4.4",
     "astro-pagefind": "^1.8.3",
-    "astro-spaceship": "^0.4.0",
+    "astro-spaceship": "^0.4.4",
     "d3": "^7.9.0",
     "html-to-text": "^9.0.5",
     "reading-time": "^1.5.0",
     "sharp": "^0.32.5",
-    "spaceship-monolith": "^0.4.0",
+    "spaceship-monolith": "^0.4.4",
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.3",
     "tailwindcss-animated": "^2.0.0"
