@@ -1,5 +1,4 @@
 
 @import './galaxy';
-@source "../../../node_modules/astro-spaceship/shell/markdown";
 
 @custom-variant dark (&:where(.body, .body *));

@@ -29,5 +29,9 @@ const { language } = page;
       <slot />
     </main>
     <Footer document={document}  />
+    <script type="module" is:inline>
+      import { initArticlePreviews } from '/src/scripts/article-preview.ts';
+      window.addEventListener('DOMContentLoaded', initArticlePreviews);
+    </script>
   </body>
 </html>
