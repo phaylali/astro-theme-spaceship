@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
 
-import { getKnowledgeGraph } from "@/helpers/getKnowledgeGraph";
+import { getGraphView } from "astro-spaceship/components/GraphView/utils/get-graph-view.ts";
 
 export const GET: APIRoute = async () => {
-  const data = await getKnowledgeGraph();
+  const data = await getGraphView();
 
   return new Response(
     JSON.stringify(data),

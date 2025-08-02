@@ -1,8 +1,11 @@
-import { ObsidianDocumentSchema, ObsidianMdLoader, ObsidianWikiLinkSchema } from "astro-loader-obsidian";
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+
+import { ObsidianMdLoader, ObsidianWikiLinkSchema } from "astro-loader-obsidian";
+
+import { DOCUMENTS_COLLECTION_NAME } from 'astro-spaceship/constants';
+import { DocumentSchema } from 'astro-spaceship/schemas';
 
 import config from '@/config';
-import { DOCUMENTS_COLLECTION_NAME } from '@/constants';
 
 
 export default {
@@ -13,17 +16,12 @@ export default {
       url: '',
       wikilinkFields: ['relateds']
     }),
-    schema: ({ image }) => ObsidianDocumentSchema.extend({
+    schema: ({ image }) => DocumentSchema.extend({
       images: ObsidianWikiLinkSchema.extend({
         href: image().optional(),
       }).array().optional(),
-      image: image().optional(),
-      // or
-      subtitle: z.string().optional(),
       cover: image().optional(),
-      'cover-x': z.number().optional(),
-      'cover-y': z.number().optional(),
-      order: z.number().optional(),
+      image: image().optional(),
     }),
   })
 }

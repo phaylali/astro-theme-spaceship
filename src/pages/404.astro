@@ -1,50 +1,15 @@
 ---
-import { getCollection } from "astro:content";
+import { getStaticPathsFactory } from "astro-spaceship/components/404/utils/get-static-paths.ts";
+import Page from "astro-spaceship/components/404/Page.astro";
 
 import "@/styles/global.css";
+import config from "@/config";
 
-import website from "@/config";
-import Layout from "@/components/Layout.astro";
-import LeftSidebar from "@/components/LeftSidebar/LeftSidebar.astro";
-import { DOCUMENTS_COLLECTION_NAME } from "@/constants";
-import { buildTree } from "@/helpers/buildTree";
-import { useI18n } from "@/i18n";
-import type { PageContext } from "@/types";
+const getStaticPaths = getStaticPathsFactory({
+  config
+})
 
-const { t } = useI18n(Astro);
-
-const page: PageContext = {
-  language: website.defaultLocale,
-  title: t("404.title"),
-  seo: {
-    description: t("404.description"),
-  },
-};
-
-const documents = await getCollection(DOCUMENTS_COLLECTION_NAME);
-
-const tree = buildTree(documents);
-
-const entry = Astro.url.searchParams.get("entry");
+const { props } = (await getStaticPaths())[0]
 ---
 
-<Layout page={page}>
-  <LeftSidebar
-    website={website}
-    navigation={{
-      ...{
-        tree,
-        backlinks: [],
-      },
-    }}
-  />
-
-  <article class="p-8 bg-gray-50 rounded-xl grow-1">
-    <h1 class="text-4xl mb-4">
-      {t("404.title")}
-    </h1>
-    <p class="text-lg">
-      {t("404.description")}
-    </p>
-  </article>
-</Layout>
+<Page {...props} />
