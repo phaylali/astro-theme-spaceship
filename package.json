@@ -4,8 +4,9 @@
   "version": "0.4.2",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev-setup": "npm link astro-spaceship astro-loader-obsidian spaceship-monolith",
+    "start": "rm -fr .astro && astro dev --sync",
+    "build": "rm -fr node_modules && npm i && rm -fr .astro && astro build --sync",
     "preview": "astro preview",
     "astro": "astro",
     "sync": "astro sync"
@@ -13,25 +14,17 @@
   "dependencies": {
     "@astro-utils/context": "^1.1.15",
     "@astrojs/sitemap": "^3.4.1",
-    "@remark-embedder/core": "^3.0.3",
-    "@remark-embedder/transformer-oembed": "^5.0.1",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.3",
     "astro": "^5.12.1",
-    "astro-loader-obsidian": "^0.3.4",
+    "astro-loader-obsidian": "^0.3.5",
     "astro-pagefind": "^1.8.3",
-    "astro-spaceship": "^0.0.4",
+    "astro-spaceship": "^0.0.5",
     "d3": "^7.9.0",
-    "front-matter": "^4.0.2",
-    "hast-util-from-html": "^2.0.3",
     "html-to-text": "^9.0.5",
-    "mdast-util-from-markdown": "^2.0.2",
     "reading-time": "^1.5.0",
-    "rehype-rewrite": "^4.0.2",
-    "remark-code-extra": "^1.0.1",
-    "remark-obsidian-callout": "^1.5.1",
     "sharp": "^0.32.5",
-    "spaceship-monolith": "^0.0.4",
+    "spaceship-monolith": "^0.0.6",
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.3",
     "tailwindcss-animated": "^2.0.0"
@@ -39,5 +32,6 @@
   "devDependencies": {
     "@types/d3": "^7.4.3",
     "@types/html-to-text": "^9.0.4"
-  }
+  },
+  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
 }
