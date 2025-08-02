@@ -1,6 +1,6 @@
 @import 'spaceship-monolith/base';
 @source "../../../node_modules/astro-loader-obsidian";
-@source "../../../node_modules/astro-spaceship/shell/markdown";
+@source "../../../node_modules/astro-spaceship";
 
 /* ibm-plex-sans-latin-wght-normal */
 @font-face {
