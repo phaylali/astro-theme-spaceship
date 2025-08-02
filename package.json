@@ -1,38 +1,22 @@
 {
   "name": "spaceship",
   "type": "module",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "scripts": {
     "dev": "astro dev",
     "dev-setup": "npm link astro-spaceship astro-loader-obsidian spaceship-monolith",
     "start": "rm -fr .astro && astro dev --sync",
-    "build": "rm -fr node_modules && npm i && rm -fr .astro && astro build --sync",
+    "build": "rm -fr node_modules && npm i && npm run dev-setup && rm -fr .astro && astro build --sync",
     "preview": "astro preview",
     "astro": "astro",
     "sync": "astro sync"
   },
   "dependencies": {
-    "@astro-utils/context": "^1.1.15",
-    "@astrojs/sitemap": "^3.4.1",
-    "@popperjs/core": "^2.11.8",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.3",
-    "astro": "^5.12.1",
-    "astro-loader-obsidian": "^0.5.0",
-    "astro-pagefind": "^1.8.3",
-    "astro-spaceship": "^0.5.0",
-    "d3": "^7.9.0",
-    "html-to-text": "^9.0.5",
-    "reading-time": "^1.5.0",
+    "astro": "^5.12.8",
+    "astro-loader-obsidian": "^0.5.1",
+    "astro-spaceship": "^0.5.1",
     "sharp": "^0.32.5",
-    "spaceship-monolith": "^0.5.0",
-    "tailwind-scrollbar": "^4.0.2",
-    "tailwindcss": "^4.1.3",
-    "tailwindcss-animated": "^2.0.0"
-  },
-  "devDependencies": {
-    "@types/d3": "^7.4.3",
-    "@types/html-to-text": "^9.0.4"
+    "spaceship-monolith": "^0.5.1"
   },
   "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
 }
