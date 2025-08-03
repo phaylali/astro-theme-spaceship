@@ -13,7 +13,7 @@ aspectRatio: "56.25"
 
 ### Usage
 
-````sh
+````md
 ```embed
 title: "Is TRAE really the new Cursor Killer?"
 image: "https://i.ytimg.com/vi/P474KSwzsr8/maxresdefault.jpg"

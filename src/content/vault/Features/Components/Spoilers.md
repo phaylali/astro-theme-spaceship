@@ -14,7 +14,7 @@ order: 40
 ### Usage
 
 
-````sh
+````md
 ```spoiler-markdown
 ## Markdown 
 

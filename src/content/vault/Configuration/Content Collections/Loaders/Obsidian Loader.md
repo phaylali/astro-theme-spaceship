@@ -37,7 +37,7 @@ npm install astro-loader-obsidian
 1. **Setup your Astro config** to include the loader:
 
 ```ts
-// content.config.mjs
+// content.config.ts
 import { ObsidianDocumentSchema, ObsidianMdLoader } from "astro-loader-obsidian";
 import { defineCollection } from 'astro:content';
 
@@ -75,7 +75,7 @@ const documents = await getCollection('documents');
 
 Astro Loader respects frontmatter metadata in your Obsidian notes. You can use:
 
-```yaml
+```md
 ---
 title: "My Note"
 date: 2025-04-06

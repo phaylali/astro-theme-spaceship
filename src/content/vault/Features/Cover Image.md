@@ -6,7 +6,7 @@ cover-y: 25
 ---
 ### Usage
 
-```sh
+```md
 ---
 cover: Assets/BlogCover.avif
 cover-x: 50

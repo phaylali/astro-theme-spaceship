@@ -3,7 +3,7 @@ order: 30
 ---
 ### Usage
 
-```sh
+```md
 ---
 order: 2
 ---
