@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "dev-setup": "npm link astro-spaceship astro-loader-obsidian spaceship-monolith",
     "start": "rm -fr .astro && astro dev --sync",
-    "build": "rm -fr node_modules && npm i && npm run dev-setup && rm -fr .astro && astro build --sync",
+    "build": "rm -fr node_modules && npm i && rm -fr .astro && astro build --sync",
     "preview": "astro preview",
     "astro": "astro",
     "sync": "astro sync"
