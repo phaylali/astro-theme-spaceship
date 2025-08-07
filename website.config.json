@@ -1,10 +1,10 @@
 {
-  "author": "Spaceship CO",
+  "author": "Omniversify",
   "base": "astro-theme-spaceship/",
   "defaultLocale": "en",
-  "description": "Ship your Second Brain into the Cyber-Space",
-  "site": "https://aitorllj93.github.io",
-  "title": "Spaceship",
+  "description": "Moroccan Chronicles: Tales They Tried to Erase",
+  "site": "https://omniversify.com",
+  "title": "Omniversify",
   "displayOptions": {
     "showAuthor": false,
     "showPublishDate": false
